@@ -11,6 +11,7 @@ public class UserController {
 	@Autowired
 	Service userService;
 	
+	int i = 1;
 	
 	
 }
