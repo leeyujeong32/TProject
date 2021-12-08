@@ -67,21 +67,4 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 			return new SqlSessionTemplate(sqlSessionFactory());
 		}
 		
-		// 파일업로드
-		@Bean
-		public CommonsMultipartResolver multipartResolver() {
-			CommonsMultipartResolver cmr = new CommonsMultipartResolver();
-			cmr.setDefaultEncoding("UTF-8");
-			cmr.setMaxUploadSize(1024*1024*10); // 최대업로드사이즈(바이트)
-			return cmr;
-		}
-		
-		// 트랜잭션 설정
-		@Bean
-		public PlatformTransactionManager transactionManager() {
-			DataSourceTransactionManager tm = new DataSourceTransactionManager();
-			tm.setDataSource(dataSource());
-			return tm;
-		}
-		
 	}

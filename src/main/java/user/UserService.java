@@ -12,7 +12,6 @@ public class UserService {
 	@Autowired
 	UserDao userDao;
 	
-	
 	public List<UserVo> selectList(UserVo vo) {
 		return userDao.selectList(vo);
 	}

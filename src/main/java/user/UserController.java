@@ -18,8 +18,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	
-	@GetMapping({"/board/index.do"})
+	@GetMapping({"/user/index.do"})
 	public String index(Model model, UserVo vo) {
 		
 		List<UserVo> list = userService.selectList(vo);
