@@ -12,5 +12,7 @@ public class UserController {
 	@Autowired
 	Service userService;
 	
-	
+	public void insert() {
+		
+	}
 }
