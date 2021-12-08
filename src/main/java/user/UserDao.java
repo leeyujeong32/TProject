@@ -12,7 +12,7 @@ public class UserDao {
 	SqlSessionTemplate sst;
 
 	public List<UserVo> selectList(UserVo vo) {
-		return sst.selectList("theproject.selectList", vo);
+		return sst.selectList("user.selectList", vo);
 	}
 
 }
