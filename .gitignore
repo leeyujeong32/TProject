@@ -121,4 +121,8 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/java,windows,eclipse
 target/*
 /target/
+<<<<<<< HEAD
 .settings/
+=======
+.settings/
+>>>>>>> branch 'develop' of https://github.com/leeyujeong32/TProject.git
