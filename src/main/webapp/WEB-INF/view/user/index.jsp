@@ -10,7 +10,7 @@
 <body>
 Hello World
 	<c:forEach var="vo" items="${list }">
-		${vo.tableno }
+		${vo.testno }
 	</c:forEach>
 </body>
 </html>

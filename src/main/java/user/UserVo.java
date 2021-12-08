@@ -2,14 +2,16 @@ package user;
 
 public class UserVo {
 
-	public int tableno;
+	public int testno;
 
-	public int getTableno() {
-		return tableno;
+	public int getTestno() {
+		return testno;
 	}
 
-	public void setTableno(int tableno) {
-		this.tableno = tableno;
+	public void setTestno(int testno) {
+		this.testno = testno;
 	}
+
+
 	
 }

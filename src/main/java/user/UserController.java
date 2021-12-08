@@ -22,6 +22,7 @@ public class UserController {
 	public String index(Model model, UserVo vo) {
 		
 		List<UserVo> list = userService.selectList(vo);
+		System.out.println(list.size());
 		model.addAttribute("list", list);
 		return "user/index";
 	}
