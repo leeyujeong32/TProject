@@ -26,5 +26,5 @@ public class UserController {
 		model.addAttribute("list", list);
 		return "user/index";
 	}
-	
+	int i;
 }
