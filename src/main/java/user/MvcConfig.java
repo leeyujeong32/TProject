@@ -43,7 +43,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 		public BasicDataSource dataSource() {
 			BasicDataSource ds = new BasicDataSource();
 			ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-			ds.setUrl("jdbc:mysql://localhost:3306/theproject");
+			ds.setUrl("jdbc:mysql://localhost:3306/tproject");
 			ds.setUsername("root");
 			ds.setPassword("root1234");
 			return ds;
