@@ -1,0 +1,25 @@
+name: ebay_api_config
+
+# Trading API Sandbox - https://www.x.com/developers/ebay/products/trading-api
+api.sandbox.ebay.com:
+    compatability: 719
+    appid: SeEunLee-TProject-SBX-7a0e5e2a1-0a3f8d88
+    certid: SBX-a0e5e2a100df-9392-4d15-af65-d4fe
+    devid: 5910e445-8791-4047-ad26-328ee6033583
+    token: AgAAAA**AQAAAA**aAAAAA**JgTEYQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6wFk4aiDpCFpw6dj6x9nY+seQ**Q70FAA**AAMAAA**dySXk5bgUiiNYhIC5Q4PGsJ9Dd+Q6Qpdhz3gfKTU5RBInEl2+xOOkgn7Y99pdLPzkRvZW1ALgYN5pdHoIdOd+B2WkbAGTuq2LqyVZv1aUitOYtSXNvL2nAbK+ot7bANF8iWiQOaAVYa5dcad1j+Xks8Je8t1eZy/eaLh7fgKqFVIv3t40lvkL81+sQD08gUIWS/wWo6YRd9LFoNm0mv9Xid4S24QwMuWOKFx+Lrj73UJCJaTPue/Bxgf8ocxyOm8hSvlKd/+mUzU0RrdRBeXkXvkeSbVK2fLh157Ctc+r7JV6Bc1j/La6pISXM0/wwOR2hju8IEHDxY2qw4s1QdASEpGl/BPG8XuEcL91GlIOGQdZoH+6n3xnN+cUbo+UMNwoCsUEODLOKySO8eH6MyTuBGt+OAoOoW6T+Rb/X/K3NH4zc56+sAzzIQipjC0QyVGJr44M3dOhsi22GNbyRXrLUuV6BBds7XFU3JzpVYuR2FTSG7l+d1UdYDl4GXUilIGtotWoDLaoUShmoXtO1X5z/Ps/MDebffmjjR1VQkYAHqnDwz1tyaw8ms3NUdgIozsXuQeCKWzypBmrVLvc4gj4Pee5EDa4a2/P7Cvh3wURJ5VHKPs7EU/HvikJNzxHxrtFFAWDkNbaNMYT0I/J4CQ9FX8Nnnl1JYv0DFcdsGfG5ddbM5PZ34J61WSJKGBWY6lTzAaxGQPNAdk73MUiqfmcsqUtYOB/D88IG+Jl3M6Hi2SR6+1Yw13MwsXUOEg2yr8
+
+# Trading API - https://www.x.com/developers/ebay/products/trading-api
+api.ebay.com:
+    compatability: 719
+    appid: SeEunLee-TProject-SBX-7a0e5e2a1-0a3f8d88
+    certid: SBX-a0e5e2a100df-9392-4d15-af65-d4fe
+    devid: 5910e445-8791-4047-ad26-328ee6033583
+    token: AgAAAA**AQAAAA**aAAAAA**JgTEYQ**nY+sHZ2PrBmdj6wVnY+sEZ2PrA2dj6wFk4aiDpCFpw6dj6x9nY+seQ**Q70FAA**AAMAAA**dySXk5bgUiiNYhIC5Q4PGsJ9Dd+Q6Qpdhz3gfKTU5RBInEl2+xOOkgn7Y99pdLPzkRvZW1ALgYN5pdHoIdOd+B2WkbAGTuq2LqyVZv1aUitOYtSXNvL2nAbK+ot7bANF8iWiQOaAVYa5dcad1j+Xks8Je8t1eZy/eaLh7fgKqFVIv3t40lvkL81+sQD08gUIWS/wWo6YRd9LFoNm0mv9Xid4S24QwMuWOKFx+Lrj73UJCJaTPue/Bxgf8ocxyOm8hSvlKd/+mUzU0RrdRBeXkXvkeSbVK2fLh157Ctc+r7JV6Bc1j/La6pISXM0/wwOR2hju8IEHDxY2qw4s1QdASEpGl/BPG8XuEcL91GlIOGQdZoH+6n3xnN+cUbo+UMNwoCsUEODLOKySO8eH6MyTuBGt+OAoOoW6T+Rb/X/K3NH4zc56+sAzzIQipjC0QyVGJr44M3dOhsi22GNbyRXrLUuV6BBds7XFU3JzpVYuR2FTSG7l+d1UdYDl4GXUilIGtotWoDLaoUShmoXtO1X5z/Ps/MDebffmjjR1VQkYAHqnDwz1tyaw8ms3NUdgIozsXuQeCKWzypBmrVLvc4gj4Pee5EDa4a2/P7Cvh3wURJ5VHKPs7EU/HvikJNzxHxrtFFAWDkNbaNMYT0I/J4CQ9FX8Nnnl1JYv0DFcdsGfG5ddbM5PZ34J61WSJKGBWY6lTzAaxGQPNAdk73MUiqfmcsqUtYOB/D88IG+Jl3M6Hi2SR6+1Yw13MwsXUOEg2yr8
+
+# Finding API - https://www.x.com/developers/ebay/products/finding-api
+svcs.ebay.com:
+    appid: SeEunLee-TProject-SBX-7a0e5e2a1-0a3f8d88
+
+# Shopping API - https://www.x.com/developers/ebay/products/shopping-api
+open.api.ebay.com:
+    appid: SeEunLee-TProject-SBX-7a0e5e2a1-0a3f8d88
