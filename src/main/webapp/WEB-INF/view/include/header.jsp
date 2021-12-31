@@ -3,7 +3,7 @@
 
 <div class="header">
 	<div class="size">
-	    <div class="logo"><img src="/TProject/img/logo.png"></div>
+	    <div class="logo"><a href="/TProject/index.do"><img src="/TProject/img/logo.png"></div>
 	    <div class="searchform">
 	        <div class="search_form">
 	            <select name="s_site" id="s_search_top">
@@ -23,7 +23,9 @@
 		</div>
 		<div class="login">
             <a href="/TProject/user/login.do">로그인</a> | 
-            <a href="/TProject/user/join.do">회원가입</a>
+            <a href="/TProject/user/join.do">회원가입</a> |
+            <a href="/TProject/cs/cs_center.do">고객센터</a> |
+            <a href="/TProject/member/join.do">장바구니</a> 
         </div>
     </div>
     <div class="autoKeyword">

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="notice"><!-- mapper 파일의 이름 -->
+	
+	<sql id="noticeWhere">
+		<where>
+			<if test="searchType == ''">
+				(title LIKE '%${searchWord}%' OR content LIKE '%${searchWord}%')
+			</if>
+			<if test="searchType != null and searchType != ''">
+				${searchType} LIKE '%${searchWord}%'
+			</if>
+		</where>
+	</sql>
+	<select id="selectList" resultType="cs.NoticeVo" parameterType="cs.NoticeVo">
+		SELECT * FROM notice 
+		<include refid="noticeWhere"></include>
+		ORDER BY note DESC,regdate DESC
+		LIMIT ${startIdx}, 10
+	</select>
+	<select id="count" resultType="int" parameterType="cs.NoticeVo">
+		SELECT COUNT(*) FROM notice
+		<include refid="noticeWhere"></include>
+	</select>
+
+	
+	<insert id="insert" parameterType="cs.NoticeVo">
+		INSERT INTO notice (
+			title, content,regdate,note
+		) values(
+		#{title}, #{content}, NOW(), ${note}
+		)
+	</insert>
+	
+	<select id="selectOne" parameterType="int" resultType="cs.NoticeVo">
+		SELECT * FROM notice WHERE noticeno = #{noticeno}
+	</select>
+
+</mapper>

@@ -217,3 +217,107 @@ a {
 .footer > .size > .info > p {
     line-height: 25px;
 }
+/*후기, 낙찰상품, 환율*/
+.section_3 {
+    width:1200px;
+    margin:0 auto;
+}
+.section_3 > .section > .p_review {
+    display: block;
+    width:35%;
+    float:left;
+    height: auto;
+    margin-left:10px;
+    margin-right: 12px;
+    margin-bottom:50px;
+}
+.section_3 > .section > .p_success {
+    display: block;
+    width:35%;
+    float:left;
+    height: auto;
+    margin-left:10px;
+    margin-right: 12px;
+    margin-bottom:50px;
+}
+.section_3 > .section > .exchange_rate {
+    display: block;
+    width:20%;
+    float:left;
+    height: auto;
+    margin-left:10px;
+    margin-right: 12px;
+    margin-bottom:50px;
+}
+ul{
+    list-style: none;
+}
+.p_review > h2{
+    background-color: #fff;
+}
+#main_verframe{
+    overflow: hidden;
+    width: 392px;
+    height: 251px;
+    background: #fff;
+    box-sizing: border-box;
+    border: 1px solid #e9e9e9;
+    border-top: 5px solid #3a4048;
+    border-bottom: 5px solid #3a4048;
+}
+#main_verframe li{
+    border-bottom: 1px solid #eee;
+    height: 110px;
+}
+.p_review li,.p_success li{
+    display: block;
+    height: 120px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.p_review li a,.p_success li a{
+    word-wrap: break-word;
+    width: 392px;
+    font-size:14px;
+}
+.p_review li a img ,.p_success li a img{
+    float: left;
+    max-width: 100px;
+    max-height: 100px;
+    background: #ccc;
+    vertical-align:baseline;
+    text-align: center;
+    border: none;
+}
+
+/*공지사항*/
+.cs_body{width:1200px;margin : 0 auto;padding:18px 0 0; margin-top:15px;}
+#snb{width:180px; float:left; padding:18px 0 0;}
+#snb h2{height:79px; padding:30px 0 0 25px; text-align:left;border-top:1px solid #e8e8e8;border-left:1px solid #e8e8e8;border-right:1px solid #e8e8e8;font-size:23px; font-weight:bold; color:#3399ff;}
+#snb .nav{margin-bottom:23px; padding:8px 0 20px 25px;border-left:1px solid #e8e8e8;border-right:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8;}
+#snb .nav li{padding:5px 0; font-size:17px; color:#666;}
+#snb .nav li a{color:#666;}
+
+#snb + .notice_body{width:968px; float:right; height:auto;}
+.top{padding:0 0 11px;}
+.top:after{content:''; display:block; clear:both;}
+.top .title{padding:0 0 0 13px; float:left; font-size:13px; color:#666;}
+.top .Search{float:right; font-size:0;}
+.top .Search input[type="text"]{width:205px; height:28px; line-height:28px; padding:0; border:1px solid #e2e2e2; text-indent:15px;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+.top .Search .srchSelect select{width:85px; height:19px; margin-right:5px; padding:4px 3px 5px 0; border:1px solid #e2e2e2;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
+
+.top .Search .searchWord #searchbtn {width:65px; height:30px; line-height:30px; margin-left:-1px; padding:0; font-size:14px; font-weight:bold;}
+.top .Search{float:right;}
+.top .Search .srchSelect select{height:19px; margin-right:5px; padding:4px 3px 5px 0; border:1px solid #e2e2e2;
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+}
