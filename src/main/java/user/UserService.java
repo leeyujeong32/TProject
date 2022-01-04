@@ -1,10 +1,10 @@
 package user;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class UserService {
@@ -12,8 +12,17 @@ public class UserService {
 	@Autowired
 	UserDao userDao;
 	
-	public List<UserVo> selectList(UserVo vo) {
-		return userDao.selectList(vo);
+	public int insert(UserVo vo) {
+		return userDao.insert(vo);
+	}
+
+	public boolean login(UserVo vo, HttpSession sess) {
+		UserVo mv = userDao.login(vo);
+		if(mv != null) {
+			sess.setAttribute("userInfo", mv);
+			return true;
+		}
+		return false;
 	}
 	
 }

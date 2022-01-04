@@ -1,7 +1,5 @@
 package user;
 
-import java.util.List;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,8 +9,12 @@ public class UserDao {
 	@Autowired
 	SqlSessionTemplate sst;
 
-	public List<UserVo> selectList(UserVo vo) {
-		return sst.selectList("user.selectList", vo);
+	public int insert(UserVo vo) {
+		return sst.insert("user.insert",vo);
+	}
+	
+	public UserVo login(UserVo vo) {
+		return sst.selectOne("user.selectOne",vo);
 	}
 
 }
