@@ -8,4 +8,5 @@ public interface NoticeService {
 	List<NoticeVo> selectList(NoticeVo vo);
 	int insert(NoticeVo vo);
 	NoticeVo view(int noticeno);
+	List<NoticeVo> selectNotice(NoticeVo vo);
 }

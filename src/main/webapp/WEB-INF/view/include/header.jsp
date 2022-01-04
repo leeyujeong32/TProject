@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="header">
 	<div class="size">
 	    <div class="logo"><a href="/TProject/index.do"><img src="/TProject/img/logo.png"></div>
@@ -22,10 +22,16 @@
 		    </div>
 		</div>
 		<div class="login">
-            <a href="/TProject/user/login.do">로그인</a> | 
-            <a href="/TProject/user/join.do">회원가입</a> |
+            <c:if test="${empty userInfo }">
+	            <a href="/TProject/user/login.do">로그인</a> | 
+	            <a href="/TProject/user/regist.do">회원가입</a> |
+            </c:if>
+            <c:if test="${!empty userInfo }">
+	            <a href="/TProject/user/logout.do">로그아웃</a> | 
+	            <a href="/TProject/user/mypage.do">마이페이지</a> |
+            </c:if>
             <a href="/TProject/cs/cs_center.do">고객센터</a> |
-            <a href="/TProject/member/join.do">장바구니</a> 
+            <a href="/TProject/user/regist.do">장바구니</a> 
         </div>
     </div>
     <div class="autoKeyword">
@@ -75,7 +81,7 @@
             </ul>
         </li>
         <li>
-            <a href="">마이페이지</a>
+            <a href="/TProject/user/mypage.do">마이페이지</a>
             <ul class="depth2">
                 <li><a href="">출석체크</a></li>
                 <li><a href="">구매내역</a></li>
@@ -83,7 +89,7 @@
             </ul>
         </li>
         <li>
-            <a href="">로그인</a>
+            <a href="/TProject/user/login.do">로그인</a>
         </li>
         
     </ul>

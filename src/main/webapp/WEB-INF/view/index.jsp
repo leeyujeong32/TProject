@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,8 @@
 	<link rel = "stylesheet" href = "/TProject/css/bootstrap.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="/TProject/css/common.css"/>
+    <link rel="stylesheet" href="/TProject/css/reset.css"/>
+	<link rel="stylesheet" href="/TProject/css/contents.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="/TProject/js/common.js"></script>
@@ -123,13 +126,20 @@
                         <div class="notice_area"><!--board_area-->
                             <div class="notice_title">공지사항</div><!--board_title-->
                             <div class="notice_content" id="board_notice"><!--board_content-->
-                                <ul>
-                                    <li>공지사항입니다.<span>2021-12-09</span></li>
-                                    <li>공지사항입니다.<span>2021-12-09</span></li>
-                                    <li>공지사항입니다.<span>2021-12-09</span></li>
-                                    <li>공지사항입니다.<span>2021-12-09</span></li>
-                                 
-                                </ul>
+                                <c:if test="${empty list }">
+		                            <ul>
+		                                <li class="first">등록된 글이 없습니다.</li>
+		                            </ul>
+								</c:if>
+		                        <c:if test="${!empty list }">    
+			                        <c:forEach var="vo" items="${list}">   
+				                        <ul <c:if test="${vo.note == 1 }">class="notice"</c:if>>
+				                            <li class="subject" style="text-align:left;"><a href="/myproject/cs/view.do?noticeno=${vo.noticeno}">${vo.title }</a>
+				                            	<span class="date"><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd"/></span>
+				                            </li>
+				                        </ul>
+			                        </c:forEach>
+		                        </c:if>
                             </div>
                         </div>
                     </div>
@@ -161,9 +171,167 @@
                     </div>
                 </div>
             </div>                         
-        
 		</div>
-		<%@ include file="/WEB-INF/view/include/footer.jsp" %>
+		<div class="section_3">
+            <div class="section">
+                <div class="p_review">
+                    <h2>고객 후기</h2>
+                    <ul id="main_verframe" class="main_verframe">
+                        <li>
+                            <div class="reviewBox">
+                                <div class="reviewText">
+                                    <p>제목1</p>
+                                    <p><span>작성자1</span></p>
+                                    <div class="content_info"><p>내용1</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reviewBox">
+                                <div class="reviewText">
+                                    <p>제목2</p>
+                                    <p><span>작성자2</span></p>
+                                    <div class="content_info"><p>내용2</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reviewBox">
+                                <div class="reviewText">
+                                    <p>제목3</p>
+                                    <p><span>작성자3</span></p>
+                                    <div class="content_info"><p>내용3</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reviewBox">
+                                <div class="reviewText">
+                                    <p>제목4</p>
+                                    <p><span>작성자4</span></p>
+                                    <div class="content_info"><p>내용4</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reviewBox">
+                                <div class="reviewText">
+                                    <p>제목5</p>
+                                    <p><span>작성자5</span></p>
+                                    <div class="content_info"><p>내용5</p></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p_success">
+                    <h2>낙찰 상품</h2>
+                    <ul  id="main_verframe" class="main_verframe">
+                        <li>
+                            <div class="reviewBox">
+                                <div class="reviewText">
+                                    <p>제목1</p>
+                                    <p><span>작성자1</span></p>
+                                    <div class="content_info"><p>내용1</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reviewBox">
+                                <div class="reviewText">
+                                    <p>제목2</p>
+                                    <p><span>작성자2</span></p>
+                                    <div class="content_info"><p>내용2</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reviewBox">
+                                <div class="reviewText">
+                                    <p>제목3</p>
+                                    <p><span>작성자3</span></p>
+                                    <div class="content_info"><p>내용3</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reviewBox">
+                                <div class="reviewText">
+                                    <p>제목4</p>
+                                    <p><span>작성자4</span></p>
+                                    <div class="content_info"><p>내용4</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reviewBox">
+                                <div class="reviewText">
+                                    <p>제목5</p>
+                                    <p><span>작성자5</span></p>
+                                    <div class="content_info"><p>내용5</p></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="exchange_rate">
+                    <h2>환율</h2>
+                    <ul  id="main_verframe" class="main_verframe">
+                        <li>
+                            <div class="reviewBox">
+	                            <div class="review_photo">
+	                            	<img src="/myproject/img/Japan.png">
+	                            </div>
+                                <div class="reviewText">
+                                    <p>제목1</p>
+                                    <p><span>작성자1</span></p>
+                                    <div class="content_info"><p>내용1</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reviewBox">
+	                            <div class="review_photo">
+	                            	<img src="/myproject/img/US.png">
+	                            </div>
+                                <div class="reviewText">
+                                    <p>제목2</p>
+                                    <p><span>작성자2</span></p>
+                                    <div class="content_info"><p>내용2</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="reviewBox">
+                            	<div class="review_photo">
+	                            	<img src="/myproject/img/GB.png">
+	                            </div>
+                                <div class="reviewText">
+                                    <p>제목3</p>
+                                    <p><span>작성자3</span></p>
+                                    <div class="content_info"><p>내용3</p></div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <script>
+            $(document).ready(function() {
+                var ticker = function() {
+                    $('ul.main_verframe').each(function(){
+                        $('li:first', this).animate({marginTop: '-121px'}, 1000, function() {
+                            var $this = $(this);
+                            $this.appendTo($this.parent()).removeAttr('style');
+                        });
+                    })
+                };
+                setInterval(ticker, 4000);
+            });
+        	</script>
+        </div>
 	</div>
+	<%@ include file="/WEB-INF/view/include/footer.jsp" %>
 </body>
 </html>

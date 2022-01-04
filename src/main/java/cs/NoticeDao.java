@@ -33,6 +33,10 @@ public class NoticeDao {
 	public NoticeVo selectOne(int noticeno) {
 		return sqlSessionTemplate.selectOne("notice.selectOne",noticeno);
 	}
+	public List<NoticeVo> selectNotice(NoticeVo vo){
+		return sqlSessionTemplate.selectList("notice.selectNotice",vo);
+	}
+	
 	
 
 }

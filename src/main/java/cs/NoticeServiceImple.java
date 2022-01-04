@@ -31,6 +31,10 @@ public class NoticeServiceImple implements NoticeService {
 		
 		return noticeDao.selectOne(noticeno);
 	}
-
+	
+	@Override
+	public List<NoticeVo> selectNotice(NoticeVo vo) {
+		return noticeDao.selectNotice(vo);
+	}
 
 }
