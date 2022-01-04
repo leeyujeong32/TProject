@@ -3,6 +3,6 @@
 <mapper namespace="user"> <!-- mapper파일의 이름 -->
 	<!-- 컬럼명과 필드명을 매핑 -->
 	<select id="selectList" parameterType="user.UserVo" resultType="user.UserVo">
-		SELECT * FROM test
+		SELECT * FROM member
 	</select>
 </mapper>

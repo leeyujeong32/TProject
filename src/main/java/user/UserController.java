@@ -27,5 +27,9 @@ public class UserController {
 		return "user/index";
 	}
 	
+	@GetMapping({"/user/mypage.do"})
+	public String mypage() {
+		return "user/mypage";
+	}
 }
 
