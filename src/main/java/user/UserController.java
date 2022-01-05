@@ -22,7 +22,7 @@ public class UserController {
 		System.out.println(list.size());
 		model.addAttribute("list", list);
 		return "user/index";
-	}
+	} 
 
 	
 	
