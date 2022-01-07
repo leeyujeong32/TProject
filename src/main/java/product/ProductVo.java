@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class ProductVo {
 
-	int productid;
+	String productid;
 	String title;
 	String conditions;
 	String country;
@@ -23,10 +23,10 @@ public class ProductVo {
 	int watchcount;
 	
 	
-	public int getProductid() {
+	public String getProductid() {
 		return productid;
 	}
-	public void setProductid(int productid) {
+	public void setProductid(String productid) {
 		this.productid = productid;
 	}
 	public String getTitle() {
