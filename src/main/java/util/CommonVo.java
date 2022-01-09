@@ -3,8 +3,6 @@ package util;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 public class CommonVo {
 	private String searchType;
 	private String searchWord;
@@ -20,5 +18,48 @@ public class CommonVo {
 //	public String getSearchWord() {
 //		return this.searchWord.toUpperCase();
 //	}
+
+	public String getSearchType() {
+		return searchType;
+	}
+
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+
+	public String getSearchWord() {
+		return searchWord;
+	}
+
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
+	}
+
+	public String getOrderCond() {
+		return orderCond;
+	}
+
+	public void setOrderCond(String orderCond) {
+		this.orderCond = orderCond;
+	}
+
+	public int getStartIdx() {
+		return startIdx;
+	}
+
+	public void setStartIdx(int startIdx) {
+		this.startIdx = startIdx;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+	
+	
+	
 	
 }
