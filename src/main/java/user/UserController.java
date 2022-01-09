@@ -1,6 +1,5 @@
 package user;
 
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -28,6 +27,13 @@ public class UserController {
 			model.addAttribute("msg","아이디, 비밀번호를 확인해주세요");
 			return "include/return";
 		}
+	}
+	@GetMapping("/user/logout.do")
+	public String logout(Model model, HttpSession sess) {
+		sess.invalidate();
+		model.addAttribute("msg","로그아웃되었습니다");
+		model.addAttribute("url","/TProject/index.do");//클라이언트에서(자바스크립트)에서 동작하는거기때문에 /project부터 써야함
+		return "include/return";
 	}
 	
 	@GetMapping("user/regist.do")

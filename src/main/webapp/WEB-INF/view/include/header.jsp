@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="header">
 	<div class="size">
 	    <div class="logo"><a href="/TProject/index.do"><img src="/TProject/img/logo.png"></div>
@@ -22,10 +22,16 @@
 		    </div>
 		</div>
 		<div class="login">
-            <a href="/TProject/user/login.do">로그인</a> | 
-            <a href="/TProject/user/join.do">회원가입</a> |
+            <c:if test="${empty memberInfo }">
+	            <a href="/TProject/user/login.do">로그인</a> | 
+	            <a href="/TProject/user/regist.do">회원가입</a> |
+            </c:if>
+            <c:if test="${!empty memberInfo }">
+	            <a href="/TProject/user/logout.do">로그아웃</a> | 
+	            <a href="/TProject/user/mypage.do">마이페이지</a> |
+            </c:if>
             <a href="/TProject/cs/cs_center.do">고객센터</a> |
-            <a href="/TProject/member/join.do">장바구니</a> 
+            <a href="/TProject/user/cart.do">장바구니</a> 
         </div>
     </div>
     <div class="autoKeyword">
