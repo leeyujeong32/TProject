@@ -59,6 +59,8 @@
 		<constructor-arg index="0" ref="sqlSessionFactory2"/>
 	</bean>
 	
+	<context:property-placeholder location="classpath:config/keynum.properties" />
+	
 	<!-- 파일 업로드 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="UTF-8"></property>
