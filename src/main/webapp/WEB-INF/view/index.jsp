@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,13 +124,21 @@
                         <div class="notice_area"><!--board_area-->
                             <div class="notice_title">공지사항</div><!--board_title-->
                             <div class="notice_content" id="board_notice"><!--board_content-->
-                                <ul>
-                                    <li>공지사항입니다.<span>2021-12-09</span></li>
-                                    <li>공지사항입니다.<span>2021-12-09</span></li>
-                                    <li>공지사항입니다.<span>2021-12-09</span></li>
-                                    <li>공지사항입니다.<span>2021-12-09</span></li>
-                                 
-                                </ul>
+                                
+                                <c:if test="${empty list }">
+		                            <ul>
+		                                <li class="first">등록된 글이 없습니다.</li>
+		                            </ul>
+								</c:if>
+		                        <c:if test="${!empty list }">    
+			                        <c:forEach var="vo" items="${list}">   
+				                        <ul <c:if test="${vo.note == 1 }">class="notice"</c:if>>
+				                            <li class="subject" style="text-align:left;"><a href="/myproject/cs/view.do?noticeno=${vo.noticeno}">${vo.title }</a>
+				                            	<span class="date"><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd"/></span>
+				                            </li>
+				                        </ul>
+			                        </c:forEach>
+		                        </c:if>
                             </div>
                         </div>
                     </div>

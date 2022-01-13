@@ -35,5 +35,8 @@
 	<select id="selectOne" parameterType="int" resultType="cs.NoticeVo">
 		SELECT * FROM notice WHERE noticeno = #{noticeno}
 	</select>
-
+	
+	<select id="selectNotice" resultType="cs.NoticeVo" parameterType="cs.NoticeVo">
+		select * from (select * from notice order by noticeno DESC) n LIMIT 2
+	</select>
 </mapper>
