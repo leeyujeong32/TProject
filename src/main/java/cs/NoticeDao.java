@@ -2,6 +2,8 @@ package cs;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Repository;
 public class NoticeDao {
 	
 	@Autowired
+	@Resource(name="sqlSessionTemplate1")
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	public int count(NoticeVo vo) { //공지로 된거 빼고 count

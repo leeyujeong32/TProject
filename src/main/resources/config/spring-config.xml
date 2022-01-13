@@ -8,7 +8,7 @@
 				http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 				
 	<!-- 컴퍼넌트 스캔 -->
-	<context:component-scan base-package="main, user, product,cs"/>
+	<context:component-scan base-package="main, member,cs, util,product"/>
 	
 	<!-- 어노테이션 활성화 -->
 	<mvc:annotation-driven/>
@@ -23,7 +23,25 @@
 	</mvc:view-resolvers>
 	
 	<!-- DBCP 빈등록 -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	<bean id="dataSource1" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/tproject"/>
+		<property name="username" value="root"/>
+		<property name="password" value="root1234"/>
+	</bean>
+	
+	<!-- SqlSessionFactory -->
+	<bean id="sqlSessionFactory1" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource1"/>
+		<property name="mapperLocations" value="classpath:/mapper/**/*.xml"/>
+	</bean>
+	
+	<!-- dao에서 주입받을 객체 -->
+	<bean id="sqlSessionTemplate1" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory1"/>
+	</bean>
+	
+	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://localhost:3306/ebay"/>
 		<property name="username" value="root"/>
@@ -31,16 +49,21 @@
 	</bean>
 	
 	<!-- SqlSessionFactory -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"/>
+	<bean id="sqlSessionFactory2" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource2"/>
 		<property name="mapperLocations" value="classpath:/mapper/**/*.xml"/>
 	</bean>
 	
 	<!-- dao에서 주입받을 객체 -->
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionFactory"/>
+	<bean id="sqlSessionTemplate2" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory2"/>
 	</bean>
 	
+	<!-- 파일 업로드 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="maxUploadSize" value="10000000"></property>
+	</bean>
 	
 	
 </beans>
