@@ -19,5 +19,9 @@ public class ProductDao {
 		return sst.selectList("product.selectList", vo);
 	}
 	
+	public ProductVo selectOne(String productid) {
+		return sst.selectOne("product.selectOne", productid);
+	}
+	
 	
 }

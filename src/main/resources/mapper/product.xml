@@ -2,6 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="product"> <!-- mapper파일의 이름 -->
 	<select id="selectList" resultType="product.ProductVo" parameterType="product.ProductVo">
-		SELECT * FROM fulltable
+		SELECT * FROM fulltable	
+	</select>
+	
+	<select id="countALL" resultType="product.ProductVo" parameterType="product.ProductVo">
+		SELECT COUNT(*) FROM fulltable
+	</select>
+
+	<select id="selectOne" parameterType="String" resultType="product.ProductVo">
+		SELECT * FROM fulltable WHERE productid = #{xxx}		
 	</select>
 </mapper>
