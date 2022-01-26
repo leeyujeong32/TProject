@@ -3,5 +3,13 @@
 <mapper namespace="product"> <!-- mapper파일의 이름 -->
 	<select id="selectList" resultType="product.ProductVo" parameterType="product.ProductVo">
 		SELECT * FROM fulltable
+		ORDER BY 
+		<choose>
+			<when test="orderCond == 'watchcount_desc'">watchcount DESC</when>
+			<when test="orderCond == 'endtime_asc'">endtime ASC</when>
+			<when test="orderCond == 'price_asc'">price ASC</when>
+			<when test="orderCond == 'price_desc'">price DESC</when>
+			<otherwise>start_time DESC</otherwise>
+		</choose>
 	</select>
 </mapper>
