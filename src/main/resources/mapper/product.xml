@@ -12,7 +12,7 @@
 			<otherwise>start_time DESC</otherwise>
 		</choose>
 	</select>
-	
+	 
 	<select id="countALL" resultType="product.ProductVo" parameterType="product.ProductVo">
 		SELECT COUNT(*) FROM fulltable
 	</select>
