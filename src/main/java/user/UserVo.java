@@ -9,15 +9,13 @@ import lombok.Setter;
 @Setter
 public class UserVo {
 
-	private int member_id;
-	private String id;
+	private String userid;
 	private String pw;
 	private String name;
 	private String email;
 	private String addr1;
 	private String addr2;
-	private String address;
-	private String phoneno;
+	private String tel;
 	private Timestamp regDate;
 	private String zipcode;
 

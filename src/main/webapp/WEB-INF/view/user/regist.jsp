@@ -20,22 +20,22 @@
 	<script>
 		$(function(){
 			$("#idCheckBtn").click(function(){
-				if($("id").val().trim() == ''){
+				if($("#userid").val().trim() == ''){
 					alert('아이디를 입력해 주세요');
-					$("#id").focus();
+					$("#userid").focus();
 				}else{
 					$.ajax({
 						url : 'idCheck.do',
 						data : {
-							email : $("#id").val()
+							userid : $("#userid").val()
 						},
 						async:false,
 						success:function(res){//요청받은 url이 응답이되면 실행
 							//url의 결과에 따라 ㅁ매개변수가 달라짐
 							if(res.trim() == '1'){//function(res)=익명함수
 								alert('중복된 아이디입니다. 다른 아이디을 입력해 주세요');
-								$("#id").val("");
-								$("#id").focus();
+								$("#userid").val("");
+								$("#userid").focus();
 							}else{
 								alert("사용가능한 아이디입니다.");
 							}
@@ -97,24 +97,24 @@
 	        }).open();
 	    }
 	    function goSave(){
-	    	if($("#id").val().trim() == ""){
+	    	if($("#userid").val().trim() == ""){
 	    		alert('아이디를 입력해 주세요');
-	    		$("#id").focus();
+	    		$("#userid").focus();
 	    		return;
 	    	}
 	    	var con = true;
 	    	$.ajax({
 				url : 'idCheck.do',
 				data : {
-					email : $("#id").val()
+					userid : $("#userid").val()//?
 				},
 				async:false,//비동기
 				success:function(res){//요청받은 url이 응답이되면 실행
 					//url의 결과에 따라 ㅁ매개변수가 달라짐
 					if(res.trim() == '1'){//function(res)=익명함수
 						alert('중복된 아이디입니다. 다른 아이디를 입력해 주세요');
-						$("#id").val("");
-						$("#id").focus();
+						$("#userid").val("");
+						$("#userid").focus();
 						con = false;
 					}
 				}
@@ -145,9 +145,9 @@
 	    		$("#email").focus();
 	    		return;
 	    	}
-	    	if($("#phoneno").val().trim() == ''){
+	    	if($("#tel").val().trim() == ''){
 	    		alert('휴대폰번호를 입력해 주세요');
-	    		$("#phoneno").focus();
+	    		$("#tel").focus();
 	    		return;
 	    	}
 	    	$("#frm").submit();
@@ -171,7 +171,7 @@
                         <tr>
                             <th>*아이디</th>
                             <td>
-                                <input type="text" name="id" id="id" class="inNextBtn" style="float:left;">
+                                <input type="text" name="userid" id="userid" class="inNextBtn" style="float:left;">
                                 <span class="id_check"><a href="javascript:;" id="idCheckBtn" class="btn bgGray" style="float:left; width:auto; clear:none;">중복확인</a></span>
                             </td>
                         </tr>
@@ -198,7 +198,7 @@
                         <tr>
                             <th>*휴대폰 번호</th>
                             <td>
-                                <input type="text" name="phoneno" id="phoneno" value=""  maxlength="15" style="float:left;">
+                                <input type="text" name="tel" id="tel" value=""  maxlength="15" style="float:left;">
                             </td>
                         </tr>
                         <tr>
