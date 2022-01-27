@@ -226,8 +226,8 @@
                             		<a href=""><img src="/TProject/img/saved.png"/></a>
                             	</div>
                                 <h6>${vo.title }</h6><br>
-                                <h4>${vo.price }</h4><h6>(즉시낙찰 <span>498엔</span>)</h6>
-                                <h6 id="date">${vo.endtime } (3시간)</h6>
+                                <h4>$${vo.price }</h4><h6>(즉시낙찰 <span>$${vo.price }</span>)</h6>
+                                <h6 id="date">${vo.endtime } (${vo.timeleft_str })</h6>
                             </div>
                         </div>
                     </div>
