@@ -26,8 +26,7 @@ public class ProductServiceImple {
 		return dao.selectOne(productid);
 	}
 	
-	public ProductVo view(String productid) {
-		return dao.selectOne(productid);
+	public int count(ProductVo vo) {
+		return dao.count(vo);
 	}
-	
 }

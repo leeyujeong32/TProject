@@ -11,13 +11,15 @@
 			<when test="orderCond == 'price_desc'">price DESC</when>
 			<otherwise>start_time DESC</otherwise>
 		</choose>
+		LIMIT ${startIdx},20
 	</select>
 	 
-	<select id="countALL" resultType="product.ProductVo" parameterType="product.ProductVo">
+	<select id="count" resultType="int" parameterType="product.ProductVo">
 		SELECT COUNT(*) FROM fulltable
 	</select>
 
 	<select id="selectOne" parameterType="String" resultType="product.ProductVo">
 		SELECT * FROM fulltable WHERE productid = #{xxx}		
 	</select>
+	
 </mapper>

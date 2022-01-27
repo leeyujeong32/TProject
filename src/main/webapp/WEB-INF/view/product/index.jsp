@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="/TProject/css/reset.css"/>
     <link rel="stylesheet" href="/TProject/css/common.css"/>
+    <link rel="stylesheet" href="/TProject/css/contents.css"/>
      <link rel="stylesheet" href="/TProject/css/product/main.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -189,7 +190,7 @@
                         <input class="buttons" type="button" value="흥정하기">
                     </div>
                     <div class="total_prod">
-                        <h6>검색결과 (전체 <span>723,456</span>개)</h6>
+                        <h6>검색결과 (전체 <span>${totCount}</span>개)</h6>
                     </div>
                 </div>
                 <div class="selection_right">
@@ -233,22 +234,7 @@
                     </c:forEach>
                 </div>
             </div>
-            <div class="container">
-                <ul class="pagination"> 
-                    <li><a href="#">&laquo;</a></li> 
-                    <li class="active"><a href="#">1</a></li> 
-                    <li><a href="#">2</a></li> 
-                    <li><a href="#">3</a></li> 
-                    <li><a href="#">4</a></li> 
-                    <li><a href="#">5</a></li> 
-                    <li><a href="#">6</a></li> 
-                    <li><a href="#">7</a></li> 
-                    <li><a href="#">8</a></li> 
-                    <li><a href="#">9</a></li> 
-                    <li><a href="#">10</a></li> 
-                    <li><a href="#">&raquo;</a></li> 
-                </ul> 
-            </div>
+            ${pageArea}
         </div>
         
 	</div>

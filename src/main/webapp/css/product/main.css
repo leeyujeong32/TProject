@@ -160,7 +160,7 @@
 
         .product_page > .row > .product {
             width: 19%;
-            height: 95%;
+            height: 420px;
             display: inline-block;
             border: 1px solid grey;
             vertical-align: top;
