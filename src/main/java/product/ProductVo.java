@@ -21,6 +21,8 @@ public class ProductVo {
 	Timestamp start_time;
 	String url;
 	int watchcount;
+	int timeleft;
+	String timeleft_str;
 	
 	
 	public String getProductid() {
@@ -125,6 +127,20 @@ public class ProductVo {
 	public void setWatchcount(int watchcount) {
 		this.watchcount = watchcount;
 	}
+	public int getTimeleft() {
+		return timeleft;
+	}
+	public void setTimeleft(int timeleft) {
+		this.timeleft = timeleft;
+	}
+	public String getTimeleft_str() {
+		return timeleft_str;
+	}
+	public void setTimeleft_str(String timeleft_str) {
+		this.timeleft_str = timeleft_str;
+	}
+	
+	
 	
 	
 }

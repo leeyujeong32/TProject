@@ -12,4 +12,5 @@
 	<select id="selectOne" parameterType="String" resultType="product.ProductVo">
 		SELECT * FROM fulltable WHERE productid = #{xxx}		
 	</select>
+	
 </mapper>
