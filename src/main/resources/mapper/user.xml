@@ -3,18 +3,30 @@
 <mapper namespace="user"> <!-- mapper파일의 이름 -->
 	
 	<insert id="insert" parameterType="user.UserVo" useGeneratedKeys="true">
-		INSERT INTO member (
-			id,pw,name,email,phoneno, regDate,zipcode,address
+		INSERT INTO user (
+			userid,pw,name,email,zipcode,addr1,addr2, tel, regDate
 			) VALUES (
-				#{id},md5(#{pw}),#{name},#{email},#{phoneno},NOW(),#{zipcode},#{address}
+				#{userid},md5(#{pw}),#{name},#{email},#{zipcode},#{addr1},#{addr2},#{tel},NOW()
 			)
-			<selectKey keyProperty="member_id" resultType="int" order="AFTER">
-			SELECT last_insert_id()
-		</selectKey>	
 	</insert>
 	
-	<select id="selectOne" parameterType="user.UserVo" resultType="user.UserVo">
-		SELECT * FROM member WHERE id=#{id} and pw=md5(#{pw})
+	<select id="idCheck" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM user WHERE userid = #{userid}
 	</select>
 	
+	<select id="login" parameterType="user.UserVo" resultType="user.UserVo">
+		SELECT * FROM user WHERE userid=#{userid} and pw=md5(#{pw})
+	</select>
+	
+	<select id="searchId" parameterType="user.UserVo" resultType="user.UserVo">
+		SELECT * FROM user WHERE name = #{name} AND tel = #{tel}
+	</select>
+	
+	<select id="searchPwd" parameterType="user.UserVo" resultType="user.UserVo">
+		SELECT * FROM user WHERE userid=#{userid} AND email=#{email}
+	</select>
+	
+	<update id="updateTempPwd" parameterType="user.UserVo">
+		UPDATE user SET pw = md5(#{pw}) WHERE userid=#{userid} AND email=#{email}
+	</update>
 </mapper>
