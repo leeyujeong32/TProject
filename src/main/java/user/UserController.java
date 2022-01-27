@@ -4,10 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -43,8 +45,6 @@ public class UserController {
 	@PostMapping("user/insert.do")
 	public String insert(UserVo vo, HttpServletRequest req) {
 		
-		vo.setAddress(vo.getAddr1()+vo.getAddr2());
-		
 		int r = userService.insert(vo);
 		if(r > 0) {
 			req.setAttribute("msg","정상적으로 가입되었습니다");
@@ -55,10 +55,43 @@ public class UserController {
 		
 		return "include/return";
 	}
-	
+	@GetMapping("user/idCheck.do")
+	public String idCheck(Model model, @RequestParam String userid) {
+		model.addAttribute("result", userService.idCheck(userid));
+		
+		return "include/result";
+	}
 	@GetMapping({"/user/mypage.do"})
 	public String mypage() {
 		return "user/mypage";
+	}
+	
+	@GetMapping("/user/searchId.do")
+	public String searchId() {
+		return "user/searchId";
+	}
+	@PostMapping("/user/searchId.do")
+	public String searchId(Model model, UserVo vo) {
+		UserVo uv = userService.searchId(vo);
+		
+		model.addAttribute("result",uv == null ? "":uv.getUserid());
+		
+		return "include/result";
+	}
+	@GetMapping("/user/searchPwd.do")
+	public String searchPwd() {
+		return "user/searchPwd";
+	}
+	@Value("${mail.email}")
+	private String mailid;
+	@PostMapping("/user/searchPwd.do")
+	public String searchPwd(Model model,UserVo vo) {
+		
+		UserVo uv = userService.searchPwd(vo,mailid);
+	
+		model.addAttribute("result", uv==null ? "" : "ok");
+		
+		return "include/result";
 	}
 }
 

@@ -17,42 +17,60 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="/TProject/js/common.js"></script>
     <script>
-    	function loginCheck1(){
-    		if ($("#userid").val() == ''){
-    			alert('아이디를 입력해 주세요');
-    			$("#userid").focus();
+    	function searchId(){
+    		if ($("#name").val() == ''){
+    			alert('이름을 입력하세요');
+    			$("#name").focus();
     			return false;
     		}
-    		if ($("#pw").val() == ''){
-    			alert('비밀번호를 입력해 주세요');
-    			$("#pw").focus();
+    		if ($("#tel").val() == ''){
+    			alert('전화번호를 입력하세요');
+    			$("#tel").focus();
     			return false;
     		}
+    		$.ajax({
+    			url:"searchId.do",
+    			method:"post",
+    			data:{
+    				name:$("#name").val(),
+    				tel:$("#tel").val()
+    			},
+    			success:function(res) {
+    				if(res.trim() == ''){
+    					$("#idArea").text("아이디가 존재하지 않습니다");
+ 
+    				}
+    				else{
+    					$("#idArea").text("아이디는 '"+res.trim()+"' 입니다");
+    				}
+    			}
+    		});
+    		return false;
     	}
     </script>
 </head>
 <body>
     <div class="wrap">
         <%@ include file="/WEB-INF/view/include/header.jsp" %>
-        <form action="login.do" method="post" id="board1" name="board1" onsubmit="return loginCheck1();"><!-- header에서 id="board"이미 사용중이라서 board2로 함 -->
+        <form action="login.do" method="post" id="board1" name="board1" onsubmit="return searchId();"><!-- header에서 id="board"이미 사용중이라서 board2로 함 -->
             <div class="sub">
                 <div class="size">
-                    <h3 class="sub_title">로그인</h3>
+                    <h3 class="sub_title">아이디 찾기</h3>
                     
                     <div class="member">
                         <div class="box">
                             <fieldset class="login_form">
                                 <ul>
-                                    <li><input type="text" id="userid" name="userid" placeholder="아이디"></li>
-                                    <li><input type="password" id="pw" name="pw" placeholder="비밀번호"></li>
-                                    <li><label><input type="checkbox" name="reg1" id="reg1"/> 아이디저장</label></li>
+                                    <li><input type="text" id="name" name="name" placeholder="이름"></li>
+                                    <li><input type="text" id="tel" name="tel" placeholder="전화번호"></li>
+                                    <li id="idArea"></li>
                                 </ul>
-                                <div class="login_btn"><input type="submit" value="로그인" alt="로그인" /></div>
+                                <div class="login_btn"><input type="submit" value="아이디찾기" alt="아이디찾기" /></div>
                             </fieldset>
                             <div class="btnSet clear">
                                 <div>
-                                    <a href="regist.do" class="btn">회원가입</a> 
-                                    <a href="searchId.do" class="btn">아이디/비밀번호 찾기</a>
+                                    <a href="login.do" class="btn">로그인</a> 
+                                    <a href="searchPwd.do" class="btn">비밀번호 찾기</a>
                                 </div>
                             </div>
                         </div>

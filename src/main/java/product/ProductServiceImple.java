@@ -21,7 +21,7 @@ public class ProductServiceImple {
 		}
 		return list;
 	}
-	
+
 	public ProductVo view(String productid) {
 		return dao.selectOne(productid);
 	}

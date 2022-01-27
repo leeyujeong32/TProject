@@ -26,11 +26,6 @@ public class ProductController {
 		model.addAttribute("data", service.view(productid));
 		return "product/detail/detailPage";
 	}
-	
-	
-	
-
-	
 
 	
 }

@@ -130,11 +130,11 @@
         .prod_selections #button_selected, #translate_button {
             background-color: black;
         }
-
+/*
         span {
             color: steelblue;
         }
-
+*/
         .total_prod, .align_options {
             vertical-align: bottom;
             font-size: larger;
@@ -146,13 +146,13 @@
 
         .product_page {
             width: 1200px;
-            height: 1700px;
+            height: auto;
             float: left;
         }
         .product_page > .row {
             padding-left: 15px;
             width: 100%;
-            height: 400px;
+            height: auto;
             margin-left: 0;
             margin-top: 10px;
             
@@ -425,7 +425,7 @@
             margin:1%;/*마진에서 1퍼주면 width에서 1%빼면*/
         }
         .footer {
-            width:1200px;
+            /*width:1200px;*/
             margin:0 auto;
             background-color: #221f1f;
             color:#999;

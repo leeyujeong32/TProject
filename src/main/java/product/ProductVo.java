@@ -2,7 +2,9 @@ package product;
 
 import java.sql.Timestamp;
 
-public class ProductVo {
+import util.CommonVo;
+
+public class ProductVo extends CommonVo{
 
 	String productid;
 	String title;
