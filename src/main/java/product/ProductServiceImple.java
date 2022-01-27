@@ -15,4 +15,8 @@ public class ProductServiceImple {
 		return dao.selectList(vo);
 	}
 	
+	public ProductVo view(String productid) {
+		return dao.selectOne(productid);
+	}
+	
 }
