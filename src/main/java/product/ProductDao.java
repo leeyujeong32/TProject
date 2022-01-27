@@ -23,6 +23,4 @@ public class ProductDao {
 		return sst.selectOne("product.selectOne", productid);
 	}
 	
-	
-	
 }
