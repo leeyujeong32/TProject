@@ -105,7 +105,7 @@
             <ul class="big_sub">
                 <li><img src=""></li>
                 <li> > <a href="">쇼핑몰</a>
-                <li> > <a href="">큰 종류</a>
+                <li> > <a href="">${category}</a>
                 <li> > <a href="">중 종류</a>
                 <li> > <a href="">소 종류</a>
                 <li><img src=""></li>
@@ -113,7 +113,7 @@
             <div class="choose_prod">
                 <div class="type_display">
                     <ul class="mid_sub">
-                        <li><a href="">종류1</a></li>
+                        <li><a href="index.do?primary_category=Athletic Shoes">Athletic Shoes</a></li>
                         <li><a href="">종류2</a></li>
                         <li><a href="">종류3</a></li>
                         <li><a href="">종류4</a></li>
@@ -201,13 +201,14 @@
                     </div>
                     <div class="align_options"><!-- 클릭시 span태그 -->
                         <h6>
-                        	<a href="index.do?orderCond=watchcount_desc" <c:if test="${param.orderCond == 'watchcount_desc' }">style="color: steelblue;"</c:if>>인기상품순</a> | 
-                        	<a href="index.do?orderCond=endtime_asc" <c:if test="${param.orderCond == 'endtime_asc'}">style="color: steelblue;"</c:if>>마감임박순</a>| 
-                        	<a href="index.do?orderCond=price_asc" <c:if test="${param.orderCond == 'price_asc'}">style="color: steelblue;"</c:if>>낮은가격순</a> | 
-                        	<a href="index.do?orderCond=price_desc" <c:if test="${param.orderCond == 'price_desc'}">style="color: steelblue;"</c:if>>높은가격순</a> | 
+                        
+                        	<a href="index.do?primary_category=${category}&orderCond=watchcount_desc" <c:if test="${param.orderCond == 'watchcount_desc' }">style="color: steelblue;"</c:if>>인기상품순</a> | 
+                        	<a href="index.do?primary_category=${category}&orderCond=endtime_asc" <c:if test="${param.orderCond == 'endtime_asc'}">style="color: steelblue;"</c:if>>마감임박순</a>| 
+                        	<a href="index.do?primary_category=${category}&orderCond=price_asc" <c:if test="${param.orderCond == 'price_asc'}">style="color: steelblue;"</c:if>>낮은가격순</a> | 
+                        	<a href="index.do?primary_category=${category}&orderCond=price_desc" <c:if test="${param.orderCond == 'price_desc'}">style="color: steelblue;"</c:if>>높은가격순</a> | 
                         	<a href="">입찰수높은순</a> | 
                         	<a href="">입찰수낮은순</a> | 
-                        	<a href="index.do?orderCond=start_time_desc" <c:if test="${param.orderCond == 'start_time_desc'}">style="color: steelblue;"</c:if>>신상품순</a>
+                        	<a href="index.do?primary_category=${category}&orderCond=start_time_desc" <c:if test="${param.orderCond == 'start_time_desc'}">style="color: steelblue;"</c:if>>신상품순</a>
                         </h6>
                     </div>
                 </div>
@@ -226,8 +227,8 @@
                             		<a href=""><img src="/TProject/img/saved.png"/></a>
                             	</div>
                                 <h6>${vo.title }</h6><br>
-                                <h4>${vo.price }</h4><h6>(즉시낙찰 <span>498엔</span>)</h6>
-                                <h6 id="date">${vo.endtime } (3시간)</h6>
+                                <h4>$${vo.price }</h4><h6>(즉시낙찰 <span>$${vo.price }</span>)</h6>
+                                <h6 id="date">${vo.endtime } (${vo.timeleft_str })</h6>
                             </div>
                         </div>
                     </div>
