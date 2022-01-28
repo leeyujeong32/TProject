@@ -1,13 +1,11 @@
 package main;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class ExChangeRateVo {
 
 	private String cur_unit;
 	private String kftc_deal_bas_r;
 	private String cur_nm;
+
 	public String getCur_unit() {
 		return cur_unit;
 	}
