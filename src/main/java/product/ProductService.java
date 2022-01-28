@@ -1,13 +1,15 @@
 package product;
 
+import java.util.List;
+
 import org.springframework.ui.Model;
 
 public interface ProductService {
 
-	String selectList(Model model, ProductVo vo);
-	String orderTime(Model model, ProductVo vo);
+	List<ProductVo> selectList(ProductVo vo);
 	ProductVo view(String productid);
 	int count(ProductVo vo);
+	//int delete(ProductVo vo);
 	
 	
 }

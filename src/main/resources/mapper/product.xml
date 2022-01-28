@@ -31,4 +31,5 @@
 		SELECT * FROM fulltable WHERE productid = #{xxx}		
 	</select>
 	
+	
 </mapper>

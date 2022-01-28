@@ -16,11 +16,10 @@ import util.CommonUtil;
 public class ProductController {
 
 	@Autowired
-	ProductServiceImple service;
+	ProductService service;
 	
 	@GetMapping("/product/index.do")
 	public String index(Model model, ProductVo vo, HttpServletRequest request) {
-		
 		String category = request.getParameter("primary_category");
 		if(category != null) 
 			vo.setPrimary_category(category);
@@ -32,6 +31,7 @@ public class ProductController {
 			vo.setOrderCond(orderCondition);
 		else
 			vo.setOrderCond("");
+		
 		int totCount = service.count(vo);
 		int totPage = totCount/20;
 		if(totCount % 20 > 0) totPage++;
