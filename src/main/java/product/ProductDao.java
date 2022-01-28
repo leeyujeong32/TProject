@@ -31,4 +31,7 @@ public class ProductDao {
 		return sst.selectOne("product.category", primary_category);
 	}
 	
+	public int delete(ProductVo vo) {
+		return sst.selectOne("product.delete", vo);
+	}
 }

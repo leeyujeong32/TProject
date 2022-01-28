@@ -1,5 +1,7 @@
 package user;
 
+import product.ProductVo;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,19 +13,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import product.ProductService;
+
 @Controller
 public class UserController {
 
 	@Autowired
 	UserService userService;
+	@Autowired
+	ProductService productService;
 
 	@GetMapping("user/login.do")
 	public String login() {
 		return "user/login";
 	}
 	@PostMapping("user/login.do")
-	public String loginProcess(UserVo vo, Model model, HttpSession sess) {
-		if(userService.login(vo, sess)) {
+	public String loginProcess(UserVo uvo, ProductVo pvo, Model model, HttpSession sess) {
+		if(userService.login(uvo, sess)) {
+			// delete items that are past the endtime
+			productService.delete(pvo); 
 			return "redirect:/index.do";
 		}else {
 			model.addAttribute("msg","아이디, 비밀번호를 확인해주세요");

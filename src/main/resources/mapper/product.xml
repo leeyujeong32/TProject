@@ -26,4 +26,7 @@
 		SELECT * FROM fulltable WHERE productid = #{xxx}		
 	</select>
 	
+	<delete id="delete" parameterType="int">
+		DELETE FROM fulltable WHERE timeleft < 1
+	</delete>
 </mapper>

@@ -33,4 +33,8 @@ public class ProductServiceImple {
 	public ProductVo category(String primary_category) {
 		return dao.selectOne(primary_category);
 	}
+	
+	public int delete(ProductVo vo) {
+		return dao.delete(vo);
+	}
 }

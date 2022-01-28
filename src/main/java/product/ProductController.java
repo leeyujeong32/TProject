@@ -16,11 +16,10 @@ import util.CommonUtil;
 public class ProductController {
 
 	@Autowired
-	ProductServiceImple service;
+	ProductService service;
 	
 	@GetMapping("/product/index.do")
 	public String index(Model model, ProductVo vo, HttpServletRequest request) {
-		
 		String category = request.getParameter("primary_category");
 		if(category != null) 
 			vo.setPrimary_category(category);
