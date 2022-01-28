@@ -17,6 +17,7 @@ public class UserVo {
 	private Timestamp regDate;
 	private String zipcode;
 	private Timestamp lastLogin;
+
 	public String getUserid() {
 		return userid;
 	}
@@ -77,9 +78,5 @@ public class UserVo {
 	public void setLastLogin(Timestamp lastLogin) {
 		this.lastLogin = lastLogin;
 	}
-	
-	
-	
-	
 	
 }
