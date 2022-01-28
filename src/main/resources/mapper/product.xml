@@ -16,10 +16,15 @@
 			<when test="orderCond == 'start_time_desc'">start_time DESC</when>
 			<otherwise>watchcount DESC</otherwise>
 		</choose>
+		LIMIT ${startIdx},20
 	</select>
 	 
 	<select id="count" resultType="int" parameterType="product.ProductVo">
 		SELECT COUNT(*) FROM fulltable
+		<choose>
+			<when test="primary_category != ''">WHERE primary_category = #{primary_category}</when>
+			<when test="primary_category = ''"></when>
+		</choose>
 	</select>
 
 	<select id="selectOne" parameterType="String" resultType="product.ProductVo">

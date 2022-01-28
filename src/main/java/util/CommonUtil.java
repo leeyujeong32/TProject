@@ -1,4 +1,5 @@
 package util;
+
 import product.ProductVo;
 
 public class CommonUtil {
@@ -13,9 +14,8 @@ public class CommonUtil {
 		ret += "<div class=\"pagenate clear\">\r\n"
 				+ "                        <ul class='paging'>\r\n";
 		if(startPage > pageRange) {
-		      ret +=                           "<li><a href=\""+url+"?page="+(startPage-1)+"\"> < </a>\r\n";
-		      }
-
+		ret +=                        	"<li><a href=\""+url+"?page="+(startPage-1)+"\"> < </a>\r\n";
+		}
 		for(int rp=startPage;rp<=endPage;rp++) {
 			ret += "                            <li><a href='javascript:location.href=\""+url+"?primary_category="+vo.getPrimary_category()+"&orderCond="+vo.getOrderCond()+"&page="+rp+"\";'";
 			if (rp == curPage) ret += "class='current'";

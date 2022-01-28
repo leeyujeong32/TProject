@@ -29,12 +29,4 @@ public class ProductServiceImple {
 	public int count(ProductVo vo) {
 		return dao.count(vo);
 	}
-	
-	public ProductVo category(String primary_category) {
-		return dao.selectOne(primary_category);
-	}
-	
-	public int delete(ProductVo vo) {
-		return dao.delete(vo);
-	}
 }

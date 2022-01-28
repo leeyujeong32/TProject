@@ -30,7 +30,6 @@ public class UserController {
 	@PostMapping("user/login.do")
 	public String loginProcess(UserVo uvo, ProductVo pvo, Model model, HttpSession sess) {
 		if(userService.login(uvo, sess)) {
-			// delete items that are past the endtime
 			productService.delete(pvo); 
 			return "redirect:/index.do";
 		}else {
