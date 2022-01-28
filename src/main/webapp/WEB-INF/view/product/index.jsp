@@ -133,6 +133,12 @@
                         <li><a href="">종류18</a></li>
                         <li><a href="">종류19</a></li>
                         <li><a href="">종류20</a></li>
+                        <li><a href="">종류21</a></li>
+                        <li><a href="">종류22</a></li>
+                        <li><a href="">종류23</a></li>
+                        <li><a href="">종류24</a></li>
+                        <li><a href="">종류25</a></li>
+                        
                     </ul>      
                 </div>
                 <div class="options">
