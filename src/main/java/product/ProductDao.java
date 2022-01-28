@@ -22,7 +22,13 @@ public class ProductDao {
 	public ProductVo selectOne(String productid) {
 		return sst.selectOne("product.selectOne", productid);
 	}
+	
 	public int count(ProductVo vo) {
 		return sst.selectOne("product.count",vo);
 	}
+	
+	public ProductVo category(String primary_category) {
+		return sst.selectOne("product.category", primary_category);
+	}
+	
 }

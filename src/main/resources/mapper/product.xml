@@ -3,15 +3,19 @@
 <mapper namespace="product"> <!-- mapper파일의 이름 -->
 	<select id="selectList" resultType="product.ProductVo" parameterType="product.ProductVo">
 		SELECT * FROM fulltable
+		<choose>
+			<when test="primary_category != ''">WHERE primary_category = #{primary_category}</when>
+			<when test="primary_category = ''"></when>
+		</choose>
 		ORDER BY 
 		<choose>
 			<when test="orderCond == 'watchcount_desc'">watchcount DESC</when>
 			<when test="orderCond == 'endtime_asc'">endtime ASC</when>
 			<when test="orderCond == 'price_asc'">price ASC</when>
 			<when test="orderCond == 'price_desc'">price DESC</when>
-			<otherwise>start_time DESC</otherwise>
+			<when test="orderCond == 'start_time_desc'">start_time DESC</when>
+			<otherwise>watchcount DESC</otherwise>
 		</choose>
-		LIMIT ${startIdx},20
 	</select>
 	 
 	<select id="count" resultType="int" parameterType="product.ProductVo">
