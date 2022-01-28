@@ -25,8 +25,16 @@ public class ProductVo extends CommonVo{
 	int watchcount;
 	int timeleft;
 	String timeleft_str;
+	int page_boolean;
 	
 	
+	
+	public int getPage_boolean() {
+		return page_boolean;
+	}
+	public void setPage_boolean(int page_boolean) {
+		this.page_boolean = page_boolean;
+	}
 	public String getProductid() {
 		return productid;
 	}

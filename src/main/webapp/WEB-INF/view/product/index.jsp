@@ -170,7 +170,7 @@
                             <input type="radio" name="price" value="bet">즉시낙찰가
                         </div>
                         <div class="price_range">
-                            <input type="range" value="0" min="0" max="200,000" oninput="this.nextElementSibling.value = this.value">
+                            <input type="range" value="0" min="0" max="${max_price}" oninput="this.nextElementSibling.value = this.value">
                             <output>0</output>
                             <input id="price_button" type="button" value="검색">
                         </div>
@@ -179,7 +179,7 @@
             </div>
             <div class="selected_prod">
                 <div class="category_selected">
-                    <img src=""><p><h3>Cars, Motorcycles & Vehicles<h3>&nbsp;<h4>(Cars, Motorcycles & Vehicles)</h4></p>
+                    <img src=""><p><h3><c:if test="${empty category}">All Items</c:if>${category}<h3>&nbsp;<h4>(Cars, Motorcycles & Vehicles)</h4></p>
                 </div>
                 <div class="search_within">
                     <span class="sw_category" onmousedown ="$('#tags').focus();">
