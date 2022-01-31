@@ -22,6 +22,14 @@ public class ProductController {
 	
 	@GetMapping("/product/index.do")
 	public String index(Model model, ProductVo vo, HttpServletRequest request) {
+		// delete out-of-date items
+		List<ProductVo> list_f = service.selectList(vo);
+		for(int i=0; i < list_f.size(); i++) {
+			if(list_f.get(i).getTimeleft() < 1) {
+			service.delete(list_f.get(i).getProductid()); 
+			}
+		}
+		
 		// saving primary_category
 		String category = request.getParameter("primary_category");
 		if(category != null) 

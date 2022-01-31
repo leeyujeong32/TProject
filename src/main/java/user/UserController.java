@@ -1,6 +1,7 @@
 package user;
 
-import product.ProductVo;
+import java.sql.Timestamp;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,16 +14,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import product.ProductService;
 import product.ProductServiceImple;
+import product.ProductVo;
 
 @Controller
 public class UserController {
 
 	@Autowired
 	UserService userService;
-//	@Autowired
-//	ProductServiceImple productService;
+	@Autowired
+	ProductServiceImple productService;
 
 	@GetMapping("user/login.do")
 	public String login() {
@@ -31,13 +32,14 @@ public class UserController {
 	@PostMapping("user/login.do")
 	public String loginProcess(UserVo uvo, ProductVo pvo, Model model, HttpSession sess) {
 		if(userService.login(uvo, sess)) {
-			//productService.delete(pvo); 
 			return "redirect:/index.do";
-		}else {
+		}
+		else {
 			model.addAttribute("msg","아이디, 비밀번호를 확인해주세요");
 			return "include/return";
 		}
 	}
+	
 	@GetMapping("/user/logout.do")
 	public String logout(Model model, HttpSession sess) {
 		sess.invalidate();

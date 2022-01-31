@@ -35,5 +35,7 @@
 		SELECT * FROM fulltable WHERE productid = #{xxx}		
 	</select>
 	
-	
+	<delete id="delete" parameterType="String">
+		DELETE FROM fulltable WHERE productid = #{xxx} 
+	</delete>
 </mapper>

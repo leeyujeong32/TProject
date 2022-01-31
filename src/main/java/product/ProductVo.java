@@ -1,6 +1,7 @@
 package product;
 
 import java.sql.Timestamp;
+import java.time.chrono.ChronoLocalDateTime;
 
 import util.CommonVo;
 
@@ -23,7 +24,7 @@ public class ProductVo extends CommonVo{
 	Timestamp start_time;
 	String url;
 	int watchcount;
-	int timeleft;
+	long timeleft;
 	String timeleft_str;
 	int page_boolean;
 	
@@ -137,10 +138,10 @@ public class ProductVo extends CommonVo{
 	public void setWatchcount(int watchcount) {
 		this.watchcount = watchcount;
 	}
-	public int getTimeleft() {
+	public long getTimeleft() {
 		return timeleft;
 	}
-	public void setTimeleft(int timeleft) {
+	public void setTimeleft(long timeleft) {
 		this.timeleft = timeleft;
 	}
 	public String getTimeleft_str() {
@@ -149,8 +150,5 @@ public class ProductVo extends CommonVo{
 	public void setTimeleft_str(String timeleft_str) {
 		this.timeleft_str = timeleft_str;
 	}
-	
-	
-	
 	
 }

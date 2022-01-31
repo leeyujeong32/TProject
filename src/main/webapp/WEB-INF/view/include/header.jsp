@@ -74,7 +74,7 @@
             </ul>
         </li>
         <li>
-            <a href="">경매하기</a>
+            <a href="/TProject/product/index.do">경매하기</a>
             <ul class="depth2">
                 <li><a href="">일본</a></li>
                 <li><a href="">미주</a></li>
