@@ -173,7 +173,7 @@
             </div>
             <div class="selected_prod">
                 <div class="category_selected">
-                    <img src=""><p><h3>Cars, Motorcycles & Vehicles<h3>&nbsp;<h4>(Cars, Motorcycles & Vehicles)</h4></p>
+                    <img src=""><p><h3><c:if test="${empty category}">All Items</c:if>${category}<h3>&nbsp;<h4>(Cars, Motorcycles & Vehicles)</h4></p>
                 </div>
                 <div class="search_within">
                     <span class="sw_category" onmousedown ="$('#tags').focus();">
