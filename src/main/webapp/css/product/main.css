@@ -146,13 +146,13 @@
 
         .product_page {
             width: 1200px;
-            height: auto;
+            height: 1600px;
             float: left;
         }
         .product_page > .row {
             padding-left: 15px;
             width: 100%;
-            height: auto;
+            height: 400px;
             margin-left: 0;
             margin-top: 10px;
             
@@ -160,7 +160,7 @@
 
         .product_page > .row > .product {
             width: 19%;
-            height: 420px;
+            height: 95%;
             display: inline-block;
             border: 1px solid grey;
             vertical-align: top;
@@ -434,4 +434,8 @@
         }
         .footer > .size > .info > p {
             line-height: 17px;
+        }
+        
+        .paging {
+        	top: -20px;
         }
