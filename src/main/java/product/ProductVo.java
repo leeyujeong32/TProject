@@ -23,10 +23,17 @@ public class ProductVo extends CommonVo{
 	Timestamp start_time;
 	String url;
 	int watchcount;
-	int timeleft;
+	long timeleft;
 	String timeleft_str;
+	int page_boolean;
 	
 	
+	public int getPage_boolean() {
+		return page_boolean;
+	}
+	public void setPage_boolean(int page_boolean) {
+		this.page_boolean = page_boolean;
+	}
 	public String getProductid() {
 		return productid;
 	}
@@ -129,10 +136,10 @@ public class ProductVo extends CommonVo{
 	public void setWatchcount(int watchcount) {
 		this.watchcount = watchcount;
 	}
-	public int getTimeleft() {
+	public long getTimeleft() {
 		return timeleft;
 	}
-	public void setTimeleft(int timeleft) {
+	public void setTimeleft(long timeleft) {
 		this.timeleft = timeleft;
 	}
 	public String getTimeleft_str() {
