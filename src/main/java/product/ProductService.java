@@ -9,7 +9,7 @@ public interface ProductService {
 	List<ProductVo> selectList(ProductVo vo);
 	ProductVo view(String productid);
 	int count(ProductVo vo);
-	//int delete(ProductVo vo);
-	
+	int delete(String productid);
+	List<ProductVo> selectAll(ProductVo vo);
 	
 }

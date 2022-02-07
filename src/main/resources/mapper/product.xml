@@ -16,8 +16,12 @@
 			<when test="orderCond == 'start_time_desc'">start_time DESC</when>
 			<otherwise>watchcount DESC</otherwise>
 		</choose>
-		LIMIT ${startIdx},20
+		<choose>
+			<when test="page_boolean == 0">LIMIT ${startIdx},20</when>
+			<otherwise></otherwise>
+		</choose>
 	</select>
+	
 	 
 	<select id="count" resultType="int" parameterType="product.ProductVo">
 		SELECT COUNT(*) FROM fulltable
@@ -31,5 +35,10 @@
 		SELECT * FROM fulltable WHERE productid = #{xxx}		
 	</select>
 	
-	
+	<delete id="delete" parameterType="String">
+		DELETE FROM fulltable WHERE productid = #{xxx} 
+	</delete>
+	<select id="selectAll" resultType="product.ProductVo" parameterType="product.ProductVo">
+		SELECT * FROM fulltable
+	</select>
 </mapper>

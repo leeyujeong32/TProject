@@ -30,8 +30,11 @@ public class ProductDao {
 	public ProductVo category(String primary_category) {
 		return sst.selectOne("product.category", primary_category);
 	}
-//	public int delete(ProductVo vo) {
-//		return sst.delete("product.delete",vo);
-//	}
+	public int delete(String productid) {
+		return sst.delete("product.delete", productid);
+	}
+	public List<ProductVo> selectAll(ProductVo vo) {
+		return sst.selectList("product.selectAll",vo);
+	}
 	
 }
