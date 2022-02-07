@@ -6,12 +6,13 @@ import util.CommonVo;
 
 public class ProductVo extends CommonVo{
 
-	String productid;
+	String itemid;
+	String categoryid;
 	String title;
 	String conditions;
 	String country;
 	Timestamp endtime;
-	String image;
+	String thumbnail;
 	boolean isavailable;
 	double price;
 	String primary_category;
@@ -26,19 +27,39 @@ public class ProductVo extends CommonVo{
 	long timeleft;
 	String timeleft_str;
 	int page_boolean;
+	String main_category;
+	int categ_boolean;
 	
 	
+	public int getCateg_boolean() {
+		return categ_boolean;
+	}
+	public void setCateg_boolean(int categ_boolean) {
+		this.categ_boolean = categ_boolean;
+	}
+	public String getMain_category() {
+		return main_category;
+	}
+	public void setMain_category(String main_category) {
+		this.main_category = main_category;
+	}
+	public String getCategoryid() {
+		return categoryid;
+	}
+	public void setCategoryid(String categoryid) {
+		this.categoryid = categoryid;
+	}
 	public int getPage_boolean() {
 		return page_boolean;
 	}
 	public void setPage_boolean(int page_boolean) {
 		this.page_boolean = page_boolean;
 	}
-	public String getProductid() {
-		return productid;
+	public String getItemid() {
+		return itemid;
 	}
-	public void setProductid(String productid) {
-		this.productid = productid;
+	public void setItemid(String itemid) {
+		this.itemid = itemid;
 	}
 	public String getTitle() {
 		return title;
@@ -64,11 +85,11 @@ public class ProductVo extends CommonVo{
 	public void setEndtime(Timestamp endtime) {
 		this.endtime = endtime;
 	}
-	public String getImage() {
-		return image;
+	public String getThumbnail() {
+		return thumbnail;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 	public boolean isIsavailable() {
 		return isavailable;

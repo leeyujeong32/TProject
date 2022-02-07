@@ -4,8 +4,26 @@
 	<select id="selectList" resultType="product.ProductVo" parameterType="product.ProductVo">
 		SELECT * FROM fulltable
 		<choose>
-			<when test="primary_category != ''">WHERE primary_category = #{primary_category}</when>
-			<when test="primary_category = ''"></when>
+			<when test="categ_boolean == 1">WHERE categoryid = 28009 OR 
+											categoryid = 552 OR
+											categoryid = 2211 OR
+											categoryid = 360 OR
+											categoryid = 553 OR
+											categoryid = 357 OR
+											categoryid = 554 OR
+											categoryid = 551 OR
+											categoryid = 156196 OR
+											categoryid = 20158</when>
+			<when test="categ_boolean == 0">WHERE categoryid != 28009 AND
+											categoryid != 552 AND
+											categoryid != 2211 AND
+											categoryid != 360 AND
+											categoryid != 553 AND
+											categoryid != 357 AND
+											categoryid != 554 AND
+											categoryid != 551 AND
+											categoryid != 156196 AND
+											categoryid != 20158</when>
 		</choose>
 		ORDER BY 
 		<choose>
@@ -32,11 +50,11 @@
 	</select>
 
 	<select id="selectOne" parameterType="String" resultType="product.ProductVo">
-		SELECT * FROM fulltable WHERE productid = #{xxx}		
+		SELECT * FROM fulltable WHERE itemid = #{xxx}		
 	</select>
 	
 	<delete id="delete" parameterType="String">
-		DELETE FROM fulltable WHERE productid = #{xxx} 
+		DELETE FROM fulltable WHERE itemid = #{xxx} 
 	</delete>
 	<select id="selectAll" resultType="product.ProductVo" parameterType="product.ProductVo">
 		SELECT * FROM fulltable

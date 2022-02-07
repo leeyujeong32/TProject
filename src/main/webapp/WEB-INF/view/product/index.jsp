@@ -113,7 +113,7 @@
             <div class="choose_prod">
                 <div class="type_display">
                     <ul class="mid_sub">
-                        <li><a href="index.do?primary_category=Athletic Shoes">Athletic Shoes</a></li>
+                        <li><a href="index.do?">Art</a></li>
                         <li><a href="">종류2</a></li>
                         <li><a href="">종류3</a></li>
                         <li><a href="">종류4</a></li>
@@ -173,7 +173,7 @@
             </div>
             <div class="selected_prod">
                 <div class="category_selected">
-                    <img src=""><p><h3><c:if test="${empty category}">All Items</c:if>${category}<h3>&nbsp;<h4>(Cars, Motorcycles & Vehicles)</h4></p>
+                    <img src=""><p><h3><c:if test="${empty mainCategory}">All Items</c:if>${mainCategory}<h3>&nbsp;<h4>(Cars, Motorcycles & Vehicles)</h4></p>
                 </div>
                 <div class="search_within">
                     <span class="sw_category" onmousedown ="$('#tags').focus();">
@@ -202,13 +202,13 @@
                     <div class="align_options"><!-- 클릭시 span태그 -->
                         <h6>
                         
-                        	<a href="index.do?primary_category=${category}&orderCond=watchcount_desc" <c:if test="${param.orderCond == 'watchcount_desc' }">style="color: steelblue;"</c:if>>인기상품순</a> | 
-                        	<a href="index.do?primary_category=${category}&orderCond=endtime_asc" <c:if test="${param.orderCond == 'endtime_asc'}">style="color: steelblue;"</c:if>>마감임박순</a>| 
-                        	<a href="index.do?primary_category=${category}&orderCond=price_asc" <c:if test="${param.orderCond == 'price_asc'}">style="color: steelblue;"</c:if>>낮은가격순</a> | 
-                        	<a href="index.do?primary_category=${category}&orderCond=price_desc" <c:if test="${param.orderCond == 'price_desc'}">style="color: steelblue;"</c:if>>높은가격순</a> | 
+                        	<a href="index.do?primary_category=${middleCategory}&orderCond=watchcount_desc" <c:if test="${param.orderCond == 'watchcount_desc' }">style="color: steelblue;"</c:if>>인기상품순</a> | 
+                        	<a href="index.do?primary_category=${middleCategory}&orderCond=endtime_asc" <c:if test="${param.orderCond == 'endtime_asc'}">style="color: steelblue;"</c:if>>마감임박순</a>| 
+                        	<a href="index.do?primary_category=${middleCategory}&orderCond=price_asc" <c:if test="${param.orderCond == 'price_asc'}">style="color: steelblue;"</c:if>>낮은가격순</a> | 
+                        	<a href="index.do?primary_category=${middleCategory}&orderCond=price_desc" <c:if test="${param.orderCond == 'price_desc'}">style="color: steelblue;"</c:if>>높은가격순</a> | 
                         	<a href="">입찰수높은순</a> | 
                         	<a href="">입찰수낮은순</a> | 
-                        	<a href="index.do?primary_category=${category}&orderCond=start_time_desc" <c:if test="${param.orderCond == 'start_time_desc'}">style="color: steelblue;"</c:if>>신상품순</a>
+                        	<a href="index.do?primary_category=${middleCategory}&orderCond=start_time_desc" <c:if test="${param.orderCond == 'start_time_desc'}">style="color: steelblue;"</c:if>>신상품순</a>
                         </h6>
                     </div>
                 </div>
@@ -218,11 +218,13 @@
                 	<c:forEach var="vo" items="${list}">
                     <div class="product">
                         <div class="product_div">
-                            <img class="main_img" src=${vo.image }>
+                        	<div class="main_img">
+                        		<img src=${vo.thumbnail }>
+                        	</div>
                             <div class="info">
                             	<div class="buttons">
                             		<a href=""><img src="/TProject/img/see_detail.png"/></a>
-                            		<a href="detail/detailPage.do?productid=${vo.productid }"><img src="/TProject/img/newtab.png"/></a>
+                            		<a href="detail/detailPage.do?productid=${vo.itemid }"><img src="/TProject/img/newtab.png"/></a>
                             		<a href=${vo.url }><img src="/TProject/img/to_url.png"/></a>
                             		<a href=""><img src="/TProject/img/saved.png"/></a>
                             	</div>
