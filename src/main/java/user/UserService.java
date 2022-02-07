@@ -52,4 +52,13 @@ public class UserService {
 		}
 		return uv;
 	}
+	public UserVo selectUser(String userid) {
+		return userDao.selectUser(userid);
+	}
+	public int update(UserVo vo) {
+		return userDao.update(vo);
+	}
+	public int pwCheck(UserVo vo) {
+		return userDao.pwCheck(vo);
+	}
 }

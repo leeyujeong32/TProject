@@ -31,5 +31,14 @@ public class UserDao {
 	public int updateTempPwd(UserVo vo) {
 		return sst.update("user.updateTempPwd",vo);
 	}
+	public UserVo selectUser(String userid) {
+		return sst.selectOne("user.selectUser", userid);
+	}
+	public int update(UserVo vo) {
+		return sst.update("user.update",vo);
+	}
+	public int pwCheck(UserVo vo) {
+		return sst.selectOne("user.pwCheck",vo);
+	}
 
 }

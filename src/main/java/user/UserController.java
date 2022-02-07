@@ -1,7 +1,5 @@
 package user;
 
-import product.ProductVo;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,16 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import product.ProductService;
 import product.ProductServiceImple;
+import product.ProductVo;
 
 @Controller
 public class UserController {
 
 	@Autowired
 	UserService userService;
-//	@Autowired
-//	ProductServiceImple productService;
+	@Autowired
+	ProductServiceImple productService;
 
 	@GetMapping("user/login.do")
 	public String login() {
@@ -31,13 +29,14 @@ public class UserController {
 	@PostMapping("user/login.do")
 	public String loginProcess(UserVo uvo, ProductVo pvo, Model model, HttpSession sess) {
 		if(userService.login(uvo, sess)) {
-			//productService.delete(pvo); 
 			return "redirect:/index.do";
-		}else {
+		}
+		else {
 			model.addAttribute("msg","아이디, 비밀번호를 확인해주세요");
 			return "include/return";
 		}
 	}
+	
 	@GetMapping("/user/logout.do")
 	public String logout(Model model, HttpSession sess) {
 		sess.invalidate();
@@ -100,6 +99,48 @@ public class UserController {
 		model.addAttribute("result", uv==null ? "" : "ok");
 		
 		return "include/result";
+	}
+	@GetMapping("/user/checkpw.do")
+	public String checkPw() {
+		return "user/checkedit";
+	}
+	@PostMapping("/user/checkpwd.do")
+	public String checkPwd(UserVo vo, HttpSession sess, HttpServletRequest req) {
+		String userid = ((UserVo)sess.getAttribute("memberInfo")).getUserid();
+		vo.setUserid(userid);
+		
+		int r = userService.pwCheck(vo);
+		if(r>0) {
+			req.setAttribute("msg", "");
+			req.setAttribute("url", "edit.do");
+		}
+		else {
+			req.setAttribute("msg", "비밀번호 불일치");
+			req.setAttribute("url", "checkpw.do");
+		}
+		return "include/return";
+	}
+	@GetMapping("/user/edit.do")
+	public String edit(UserVo vo, HttpSession sess, Model model) {
+		String userid = ((UserVo)sess.getAttribute("memberInfo")).getUserid();
+		UserVo uv = userService.selectUser(userid);
+		
+		model.addAttribute("user",uv);
+		return "user/edit";
+	}
+	@PostMapping("/user/update.do")
+	public String update(UserVo vo, HttpServletRequest req, HttpSession sess) {
+		int r = userService.update(vo);
+		
+		if(r>0) {
+			req.setAttribute("msg", "정상적으로 수정되었습니다."); //result.do에 msg와 url을 포워딩
+			req.setAttribute("url", "../product/index.do");
+			sess.invalidate();
+		}else {
+			req.setAttribute("msg", "수정오류"); //result.do에 msg와 url을 포워딩
+			req.setAttribute("url", "edit.do");
+		}
+		return "include/return";
 	}
 }
 

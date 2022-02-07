@@ -29,4 +29,21 @@
 	<update id="updateTempPwd" parameterType="user.UserVo">
 		UPDATE user SET pw = md5(#{pw}) WHERE userid=#{userid} AND email=#{email}
 	</update>
+	<select id="selectUser" parameterType="user.UserVo" resultType="user.UserVo">
+		SELECT * FROM user WHERE userid=#{userid}
+	</select>
+	<update id="update" parameterType="user.UserVo">
+		UPDATE user SET
+			pw=md5(#{pw}),
+			name=#{name},
+			email=#{email},
+			tel=#{tel},
+			zipcode=#{zipcode},
+			addr1=#{addr1},
+			addr2=#{addr2}
+		WHERE userid=#{userid}
+	</update>
+	<select id="pwCheck" parameterType="user.UserVo" resultType="int">
+		SELECT COUNT(*) FROM user WHERE userid = #{userid} AND pw = md5(#{pw})
+	</select>
 </mapper>
