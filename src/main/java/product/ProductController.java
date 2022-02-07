@@ -87,10 +87,10 @@ public class ProductController {
 		return "product/index";
 	}
 	
-	@GetMapping("/product/detail/detailPage.do")
+	@GetMapping("/product/detailPage.do")
 	public String detail(Model model, ProductVo vo, @RequestParam String itemid) {
 		model.addAttribute("data", service.view(itemid));
-		return "product/detail/detailPage";
+		return "product/detailPage";
 	}
 
 	

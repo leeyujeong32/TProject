@@ -2,36 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="product"> <!-- mapper파일의 이름 -->
 	<select id="selectList" resultType="product.ProductVo" parameterType="product.ProductVo">
-		SELECT * FROM fulltable
+		SELECT * FROM fulltable 
 		<choose>
-			<when test="categ_boolean == 1">WHERE categoryid = 28009 OR 
-											categoryid = 552 OR
-											categoryid = 2211 OR
-											categoryid = 360 OR
-											categoryid = 553 OR
-											categoryid = 357 OR
-											categoryid = 554 OR
-											categoryid = 551 OR
-											categoryid = 156196 OR
-											categoryid = 20158</when>
-			<when test="categ_boolean == 0">WHERE categoryid != 28009 AND
-											categoryid != 552 AND
-											categoryid != 2211 AND
-											categoryid != 360 AND
-											categoryid != 553 AND
-											categoryid != 357 AND
-											categoryid != 554 AND
-											categoryid != 551 AND
-											categoryid != 156196 AND
-											categoryid != 20158</when>
+			<when test="categ_boolean == 1">WHERE categoryid = 28009 OR categoryid = 552 OR categoryid = 2211 OR categoryid = 360 OR categoryid = 553 OR categoryid = 357 OR categoryid = 554 OR categoryid = 551 OR categoryid = 156196 OR categoryid = 20158</when>
+			<when test="categ_boolean == 0"></when>
 		</choose>
-		ORDER BY 
+		ORDER BY
 		<choose>
 			<when test="orderCond == 'watchcount_desc'">watchcount DESC</when>
 			<when test="orderCond == 'endtime_asc'">endtime ASC</when>
 			<when test="orderCond == 'price_asc'">price ASC</when>
 			<when test="orderCond == 'price_desc'">price DESC</when>
-			<when test="orderCond == 'start_time_desc'">start_time DESC</when>
+			<when test="orderCond == 'start_time_desc'">starttime DESC</when>
 			<otherwise>watchcount DESC</otherwise>
 		</choose>
 		<choose>
@@ -44,8 +26,8 @@
 	<select id="count" resultType="int" parameterType="product.ProductVo">
 		SELECT COUNT(*) FROM fulltable
 		<choose>
-			<when test="primary_category != ''">WHERE primary_category = #{primary_category}</when>
-			<when test="primary_category = ''"></when>
+			<when test="main_category == 'Art'">WHERE categoryid = 28009 OR categoryid = 552 OR categoryid = 2211 OR categoryid = 360 OR categoryid = 553 OR categoryid = 357 OR categoryid = 554 OR categoryid = 551 OR categoryid = 156196 OR categoryid = 20158</when>
+			<otherwise></otherwise>
 		</choose>
 	</select>
 

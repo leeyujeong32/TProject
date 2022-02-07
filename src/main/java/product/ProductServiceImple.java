@@ -15,9 +15,7 @@ public class ProductServiceImple implements ProductService{
 
 	@Override
 	public List<ProductVo> selectList(ProductVo vo) {
-		List<ProductVo> list = dao.selectList(vo);
-		
-		return list;
+		return dao.selectList(vo);	
 	}
 	@Override
 	public ProductVo view(String productid) {

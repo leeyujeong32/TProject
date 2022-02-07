@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="${data.productid}.jsp"/>
+<jsp:include page="detail/${data.itemid}.jsp"/>
 </body>
 </html>
