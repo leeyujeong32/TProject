@@ -133,6 +133,12 @@
                         <li><a href="">종류18</a></li>
                         <li><a href="">종류19</a></li>
                         <li><a href="">종류20</a></li>
+                        <li><a href="">종류21</a></li>
+                        <li><a href="">종류22</a></li>
+                        <li><a href="">종류23</a></li>
+                        <li><a href="">종류24</a></li>
+                        <li><a href="">종류25</a></li>
+                        
                     </ul>      
                 </div>
                 <div class="options">
@@ -164,7 +170,7 @@
                             <input type="radio" name="price" value="bet">즉시낙찰가
                         </div>
                         <div class="price_range">
-                            <input type="range" value="0" min="0" max="200,000" oninput="this.nextElementSibling.value = this.value">
+                            <input type="range" value="0" min="0" max="${max_price}" oninput="this.nextElementSibling.value = this.value">
                             <output>0</output>
                             <input id="price_button" type="button" value="검색">
                         </div>
