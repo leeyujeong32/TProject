@@ -15,7 +15,27 @@ public class ProductServiceImple implements ProductService{
 
 	@Override
 	public List<ProductVo> selectList(ProductVo vo) {
-		return dao.selectList(vo);	
+		List<ProductVo> list = dao.selectList(vo);
+		
+		Long datetime = System.currentTimeMillis();
+        Timestamp now = new Timestamp(datetime);
+        long diff;
+        long hours;
+        System.out.println("service i : "+list.size());
+        for (int i = 0; i < list.size(); i++) {
+           diff = list.get(i).getEndtime().getTime()-now.getTime();
+           hours = TimeUnit.MILLISECONDS.toMinutes(diff)/60; 
+           list.get(i).setTimeleft(hours);
+          // System.out.println(list.get(i).getTimeleft());
+           if (list.get(i).getTimeleft() >= 24) {
+	            list.get(i).setTimeleft_str(String.valueOf((list.get(i).getTimeleft())/24) + " days");
+	         	//System.out.println(list.get(i).getTimeleft_str());
+           }
+           else {
+        	   list.get(i).setTimeleft_str(String.valueOf(list.get(i).getTimeleft()) + " hrs");
+           }
+        }
+        return list;
 	}
 	@Override
 	public ProductVo view(String productid) {
