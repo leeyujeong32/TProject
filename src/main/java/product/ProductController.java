@@ -30,12 +30,18 @@ public class ProductController {
 		String pid = "";
 		for(int i=0; i < list_f.size(); i++) {
 		    if(list_f.get(i).getTimeleft() < 1) {
-		    	//System.out.println("종료 : "+list_f.get(i).getProductid());
-		    	pid=list_f.get(i).getProductid();
+		    	//System.out.println("종료 : "+list_f.get(i).getItemid());
+		    	pid=list_f.get(i).getItemid();
 		    	service.delete(pid);
 		    	System.out.println("삭제="+pid);
 		    }
 		}
+		// saving main_category
+		String mainCategory = request.getParameter("main_category");
+		if(mainCategory=="Art")
+			vo.setCateg_boolean(1);
+		else 
+			vo.setCateg_boolean(0);
 		// saving primary_category
 		String category = request.getParameter("primary_category");
 		if(category != null) 
@@ -60,7 +66,8 @@ public class ProductController {
 		// list of products (primary_category, orderCondition applied)
 		vo.setPage_boolean(0);
 		List<ProductVo> list = service.selectList(vo);
-		model.addAttribute("category", vo.getPrimary_category());
+		model.addAttribute("mainCategory", vo.getMain_category());
+		model.addAttribute("middleCategory", vo.getPrimary_category());
 		model.addAttribute("list", list);
 		
 		// sending pagination variables
@@ -80,10 +87,10 @@ public class ProductController {
 		return "product/index";
 	}
 	
-	@GetMapping("/product/detail/detailPage.do")
-	public String detail(Model model, ProductVo vo, @RequestParam String productid) {
-		model.addAttribute("data", service.view(productid));
-		return "product/detail/detailPage";
+	@GetMapping("/product/detailPage.do")
+	public String detail(Model model, ProductVo vo, @RequestParam String itemid) {
+		model.addAttribute("data", service.view(itemid));
+		return "product/detailPage";
 	}
 
 	
