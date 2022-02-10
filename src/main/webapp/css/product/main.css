@@ -168,7 +168,7 @@
         .product_page > .row {
             padding-left: 15px;
             width: 100%;
-            height: 360px;
+            height: 400px;
             margin-left: 0;
             margin-top: 10px;
             
@@ -176,7 +176,7 @@
 
         .product_page > .row > .product {
             width: 19%;
-            height: 360px;
+            height: 400px;
             display: inline-block;
             border: 1px solid grey;
             vertical-align: top;
@@ -187,20 +187,19 @@
         .product > .product_div {
             padding: 5px;
             width: 100%;
-            height: 360px;
+            height: 100%;
         }
 
         .product > .product_div > .main_img {
-            object-fit: fill;
-            height: 45%;
+            object-fit: contain;
+            height: 200px;
             max-width: 100%;
-            text-align: center;
         }
 
         .product > .product_div > .info {
             vertical-align: bottom;
             width: 95%;
-            height: 55%;
+            max-height: 200px;
         }
         
         .product_div > .info > .buttons {
