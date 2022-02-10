@@ -19,8 +19,8 @@ public class ProductDao {
 		return sst.selectList("product.selectList", vo);
 	}
 	
-	public ProductVo selectOne(String productid) {
-		return sst.selectOne("product.selectOne", productid);
+	public ProductVo selectOne(String itemid) {
+		return sst.selectOne("product.selectOne", itemid);
 	}
 	
 	public int count(ProductVo vo) {

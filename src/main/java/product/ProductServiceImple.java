@@ -38,8 +38,8 @@ public class ProductServiceImple implements ProductService{
         return list;
 	}
 	@Override
-	public ProductVo view(String productid) {
-		return dao.selectOne(productid);
+	public ProductVo view(String itemid) {
+		return dao.selectOne(itemid);
 	}
 	@Override
 	public int count(ProductVo vo) {

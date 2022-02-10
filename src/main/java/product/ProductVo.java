@@ -29,7 +29,14 @@ public class ProductVo extends CommonVo{
 	int page_boolean;
 	String main_category;
 	int categ_boolean;
+	String quantity;
 	
+	public String getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
+	}
 	
 	public int getCateg_boolean() {
 		return categ_boolean;
