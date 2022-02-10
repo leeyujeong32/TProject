@@ -104,10 +104,10 @@
         <div class="body_wrap">
             <ul class="big_sub">
                 <li><img src=""></li>
-                <li> > <a href="index.do">쇼핑몰</a></li>
-                <li> > <a href="index.do?main_category=${mainCategory}"><c:choose><c:when test="${empty mainCategory}">All Items</c:when><c:otherwise>${mainCategory}</c:otherwise></c:choose></a></li>
-                <li><a href="index.do?main_category=${mainCategory}&primary_category=${middleCategory}"><c:choose><c:when test="${empty middleCategory}"></c:when><c:otherwise>${middleCategory}</c:otherwise></c:choose></a></li>
-                <li> > <a href="">소 종류</a></li>
+                <li> > <a href="">쇼핑몰</a>
+                <li> > <a href="">${category}</a>
+                <li> > <a href="">중 종류</a>
+                <li> > <a href="">소 종류</a>
                 <li><img src=""></li>
             </ul>
             <div class="choose_prod">
@@ -174,7 +174,7 @@
                             <input type="radio" name="price" value="bet">즉시낙찰가
                         </div>
                         <div class="price_range">
-                            <input type="range" value="0" min="0" max=${max_price } oninput="this.nextElementSibling.value = this.value">
+                            <input type="range" value="0" min="0" max="${max_price}" oninput="this.nextElementSibling.value = this.value">
                             <output>0</output>
                             <input id="price_button" type="button" value="검색">
                         </div>
@@ -183,7 +183,7 @@
             </div>
             <div class="selected_prod">
                 <div class="category_selected">
-                    <img src=""><p><h3><c:if test="${empty mainCategory}">All Items</c:if>${mainCategory}<h3>&nbsp;<h4>(Cars, Motorcycles & Vehicles)</h4></p>
+                    <img src=""><p><h3><c:if test="${empty category}">All Items</c:if>${category}<h3>&nbsp;<h4>(Cars, Motorcycles & Vehicles)</h4></p>
                 </div>
                 <div class="search_within">
                     <span class="sw_category" onmousedown ="$('#tags').focus();">
@@ -213,7 +213,7 @@
                         <h6>
                         	<a href="index.do?primary_category=${middleCategory}&orderCond=watchcount_desc" <c:if test="${param.orderCond == 'watchcount_desc' }">style="color: steelblue;"</c:if>>인기상품순</a> | 
                         	<a href="index.do?primary_category=${middleCategory}&orderCond=endtime_asc" <c:if test="${param.orderCond == 'endtime_asc'}">style="color: steelblue;"</c:if>>마감임박순</a>| 
-                        	<a href="index.do?primary_category=${middleCategory}&orderCond=price_asc" <c:if test="${param.orderCond == 'price_asc'}">style="color: steelblue;"</c:if>>낮은가격순</a> | 
+                        	<a href="index.do?primary_category=${middleCategory}&orderCond=price_desc" <c:if test="${param.orderCond == 'price_asc'}">style="color: steelblue;"</c:if>>낮은가격순</a> | 
                         	<a href="index.do?orderCond=price_desc" <c:if test="${param.orderCond == 'price_desc'}">style="color: steelblue;"</c:if>>높은가격순</a> | 
                         	<a href="">입찰수높은순</a> | 
                         	<a href="">입찰수낮은순</a> | 
@@ -227,13 +227,11 @@
                 	<c:forEach var="vo" items="${list}">
                     <div class="product">
                         <div class="product_div">
-                        	<div class="main_img">
-                        		<img src=${vo.thumbnail }>
-                        	</div>
+                            <img class="main_img" src=${vo.image }>
                             <div class="info">
                             	<div class="buttons">
                             		<a href=""><img src="/TProject/img/see_detail.png"/></a>
-                            		<a href="detailPage.do?itemid=${vo.itemid }"><img src="/TProject/img/newtab.png"/></a>
+                            		<a href="detail/detailPage.do?productid=${vo.productid }"><img src="/TProject/img/newtab.png"/></a>
                             		<a href=${vo.url }><img src="/TProject/img/to_url.png"/></a>
                             		<a href=""><img src="/TProject/img/saved.png"/></a>
                             	</div>
