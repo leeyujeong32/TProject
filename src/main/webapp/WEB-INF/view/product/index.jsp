@@ -113,26 +113,36 @@
             <div class="choose_prod">
                 <div class="type_display">
                     <ul class="mid_sub">
-                        <li><a href="index.do?main_category=Art">Art</a></li>
-                        <li><a href="">종류2</a></li>
-                        <li><a href="">종류3</a></li>
-                        <li><a href="">종류4</a></li>
-                        <li><a href="">종류5</a></li>
-                        <li><a href="">종류6</a></li>
-                        <li><a href="">종류7</a></li>
-                        <li><a href="">종류8</a></li>
-                        <li><a href="">종류9</a></li>
-                        <li><a href="">종류10</a></li>
-                        <li><a href="">종류11</a></li>
-                        <li><a href="">종류12</a></li>
-                        <li><a href="">종류13</a></li>
-                        <li><a href="">종류14</a></li>
-                        <li><a href="">종류15</a></li>
-                        <li><a href="">종류16</a></li>
-                        <li><a href="">종류17</a></li>
-                        <li><a href="">종류18</a></li>
-                        <li><a href="">종류19</a></li>
-                        <li><a href="">종류20</a></li>
+                        <li class="main_menu"><a href="index.do?main_category=Art">Art</a>
+	                    	<li class="sub_menu">Art Posters</li>
+	                    	<li class="sub_menu">Art Drawings</li>
+	                    	<li class="sub_menu">Art Photographs</li>
+	                    	<li class="sub_menu">Art Prints</li>
+	                    </li> 	
+		                <li class="main_menu"><a href="">종류2</a></li>
+		                <li class="main_menu"><a href="">종류3</a></li>
+		                <li><a href="">종류4</a></li>
+		                <li><a href="">종류5</a></li>
+		                <li><a href="">종류6</a></li>
+		                <li><a href="">종류7</a></li>
+		                <li><a href="">종류8</a></li>
+		                <li><a href="">종류9</a></li>
+		                <li><a href="">종류10</a></li>
+		                <li><a href="">종류11</a></li>
+		                <li><a href="">종류12</a></li>
+		                <li><a href="">종류13</a></li>
+		                <li><a href="">종류14</a></li>
+		                <li><a href="">종류15</a></li>
+		                <li><a href="">종류16</a></li>
+		                <li><a href="">종류17</a></li>
+		                <li><a href="">종류18</a></li>
+		                <li><a href="">종류19</a></li>        
+		                <li><a href="">종류20</a></li>
+		                <li><a href="">종류21</a></li>
+		                <li><a href="">종류22</a></li>
+		                <li><a href="">종류23</a></li>
+		                <li><a href="">종류24</a></li>
+		                <li><a href="">종류25</a></li>      
                     </ul>      
                 </div>
                 <div class="options">
@@ -164,7 +174,7 @@
                             <input type="radio" name="price" value="bet">즉시낙찰가
                         </div>
                         <div class="price_range">
-                            <input type="range" value="0" min="0" max="200,000" oninput="this.nextElementSibling.value = this.value">
+                            <input type="range" value="0" min="0" max=${max_price } oninput="this.nextElementSibling.value = this.value">
                             <output>0</output>
                             <input id="price_button" type="button" value="검색">
                         </div>
@@ -204,7 +214,7 @@
                         	<a href="index.do?primary_category=${middleCategory}&orderCond=watchcount_desc" <c:if test="${param.orderCond == 'watchcount_desc' }">style="color: steelblue;"</c:if>>인기상품순</a> | 
                         	<a href="index.do?primary_category=${middleCategory}&orderCond=endtime_asc" <c:if test="${param.orderCond == 'endtime_asc'}">style="color: steelblue;"</c:if>>마감임박순</a>| 
                         	<a href="index.do?primary_category=${middleCategory}&orderCond=price_asc" <c:if test="${param.orderCond == 'price_asc'}">style="color: steelblue;"</c:if>>낮은가격순</a> | 
-                        	<a href="index.do?primary_category=${middleCategory}&orderCond=price_desc" <c:if test="${param.orderCond == 'price_desc'}">style="color: steelblue;"</c:if>>높은가격순</a> | 
+                        	<a href="index.do?orderCond=price_desc" <c:if test="${param.orderCond == 'price_desc'}">style="color: steelblue;"</c:if>>높은가격순</a> | 
                         	<a href="">입찰수높은순</a> | 
                         	<a href="">입찰수낮은순</a> | 
                         	<a href="index.do?primary_category=${middleCategory}&orderCond=start_time_desc" <c:if test="${param.orderCond == 'start_time_desc'}">style="color: steelblue;"</c:if>>신상품순</a>

@@ -28,6 +28,22 @@
             list-style: square;
         }
         
+        li.sub_menu {
+        	display: none;
+        	z-index: 2;
+        	position: relative;
+        	
+        }
+        
+        li.main_menu {
+        	z-index: 1;
+        }
+        
+        ul li.main_menu:hover ~ li.sub_menu {
+        	display: block;
+            position: relative;
+        }
+        
         .choose_prod > .options {
             height: 75px;
             padding: 5px;
