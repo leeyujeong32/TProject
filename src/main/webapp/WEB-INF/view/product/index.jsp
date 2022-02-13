@@ -227,11 +227,11 @@
                 	<c:forEach var="vo" items="${list}">
                     <div class="product">
                         <div class="product_div">
-                            <img class="main_img" src=${vo.image }>
+                            <img class="main_img" src=${vo.thumbnail }>
                             <div class="info">
                             	<div class="buttons">
                             		<a href=""><img src="/TProject/img/see_detail.png"/></a>
-                            		<a href="detail/detailPage.do?productid=${vo.productid }"><img src="/TProject/img/newtab.png"/></a>
+                            		<a href="detailPage.do?itemid=${vo.itemid }"><img src="/TProject/img/newtab.png"/></a>
                             		<a href=${vo.url }><img src="/TProject/img/to_url.png"/></a>
                             		<a href=""><img src="/TProject/img/saved.png"/></a>
                             	</div>
