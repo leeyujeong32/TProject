@@ -92,6 +92,5 @@ public class ProductController {
 		model.addAttribute("data", service.view(itemid));
 		return "product/detailPage";
 	}
-
 	
 }

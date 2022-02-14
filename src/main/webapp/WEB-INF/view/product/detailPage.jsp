@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="/TProject/css/reset.css"/>
     <link rel="stylesheet" href="/TProject/css/common.css"/>
     <link rel="stylesheet" href="/TProject/css/contents.css"/>
-    <link rel="stylesheet" href="/TProject/css/detailPage.css"/>
+    <link rel="stylesheet" href="/TProject/css/product/detailPage.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 	<script>
 	function checknum(num){
@@ -47,6 +47,24 @@
     	}
     	$("#nowbid").submit();
     }
+
+	$(document).ready(function() {
+
+	    $(".showimagediv").html($("#post_content > img").eq(0).clone())
+	    var pos = 0;
+	    $('#prev').on('click', function() {
+	        if(pos>0) pos--
+	          $(".showimagediv").hide().html($("#post_content > img").eq(pos).clone()).fadeIn("slow");
+	    });
+
+	    $('#next').on('click', function() {
+	    	var array = '${data.picturesList}'
+	        if(pos<array.length) pos++
+	        	$(".showimagediv").hide().html($("#post_content > img").eq(pos).clone()).fadeIn("slow");
+	    });
+	    
+	    
+	});
 	</script>
 </head>
 <body>
@@ -56,9 +74,15 @@
             <h2 class="title">${data.title}</h2>
         </div>
         <div class="section_2">
-            <div class="content_1" style="border: 1px solid #000;">
-                <img src="${data.thumbnail}" width="300px" height="300px">
-            </div>
+        	<div hidden id="post_content">
+				<c:forEach var="picture" items="${data.picturesList}">
+         			<img src="${picture}" width="300px" height="300px">
+        		</c:forEach>           	
+        	</div>
+        	<div class="content_1">
+        		<div class="showimagediv"></div>
+				<button id="prev">Prev</button> / <button id="next">Next</button>
+			</div>
             <div class="content_2" style="border: 1px solid #000;">
                 <div class="directbid_price">
                     즉시 낙찰가 (${data.price})

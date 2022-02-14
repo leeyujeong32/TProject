@@ -1,6 +1,7 @@
 package product;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import util.CommonVo;
 
@@ -30,7 +31,21 @@ public class ProductVo extends CommonVo{
 	String main_category;
 	int categ_boolean;
 	String quantity;
+	String pictures;
+	String[] picturesList;
 	
+	public String getPictures() {
+		return pictures;
+	}
+	public void setPictures(String pictures) {
+		this.pictures = pictures;
+	}
+	public String[] getPicturesList() {
+		return picturesList;
+	}
+	public void setPicturesList(String[] picturesList) {
+		this.picturesList = picturesList;
+	}
 	public String getQuantity() {
 		return quantity;
 	}

@@ -39,7 +39,10 @@ public class ProductServiceImple implements ProductService{
 	}
 	@Override
 	public ProductVo view(String itemid) {
-		return dao.selectOne(itemid);
+		ProductVo pv = dao.selectOne(itemid);
+		String s = pv.getPictures().substring(2, pv.getPictures().length()-2);
+		pv.setPicturesList(s.toString().split("\", \""));
+		return pv;
 	}
 	@Override
 	public int count(ProductVo vo) {
